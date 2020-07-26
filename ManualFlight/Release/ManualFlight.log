@@ -1,0 +1,7 @@
+﻿  ManualFlight.cpp
+C:\Users\Kasey\Desktop\Learning C++\ManualFlight\ManualFlight\ManualFlight.cpp(96): warning C4101: 'msg': unreferenced local variable
+  LINK : /LTCG specified but no code generation required; remove /LTCG from the link command line to improve linker performance
+opencv_ts2413.lib(ts_gtest.obj) : warning LNK4099: PDB 'opencv_ts2413.pdb' was not found with 'opencv_ts2413.lib(ts_gtest.obj)' or at 'C:\Users\Kasey\Desktop\Learning C++\ManualFlight\Release\opencv_ts2413.pdb'; linking object as if no debug info
+opencv_ts2413.lib(ts_perf.obj) : warning LNK4099: PDB 'opencv_ts2413.pdb' was not found with 'opencv_ts2413.lib(ts_perf.obj)' or at 'C:\Users\Kasey\Desktop\Learning C++\ManualFlight\Release\opencv_ts2413.pdb'; linking object as if no debug info
+opencv_ts2413.lib(opencv_ts_pch.obj) : warning LNK4099: PDB 'opencv_ts2413.pdb' was not found with 'opencv_ts2413.lib(opencv_ts_pch.obj)' or at 'C:\Users\Kasey\Desktop\Learning C++\ManualFlight\Release\opencv_ts2413.pdb'; linking object as if no debug info
+  ManualFlight.vcxproj -> C:\Users\Kasey\Desktop\Learning C++\ManualFlight\Release\ManualFlight.exe
