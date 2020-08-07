@@ -7,7 +7,7 @@ function [fftMat,rawPeaksMat,fitPeaksMat]=FFTAnalysis(typeOfData,loggedVariable)
 global dataMat;
 %close all;
 %clearvars;
-%dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB');
+%dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data');
 %cd /Users/grace/Documents/BATL-flight/Code/Data_Analysis_MATLAB
 useGradientColors=1;
 figure();  
