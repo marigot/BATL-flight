@@ -5,8 +5,7 @@ function [fftMat,rawPeaksMat,fitPeaksMat]=FFTAnalysis(typeOfData,loggedVariable)
 %       crazyflie: 2=kalman.stateZ, 3=gyro.x (roll), 6=gyro.y (pitch)
 
 global dataMat;
-%global freqsMat;
-
+global freqsMat;
 %close all;
 %clearvars;
 %dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data');
