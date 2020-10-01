@@ -5,12 +5,39 @@ function [fftMat,rawPeaksMat,fitPeaksMat]=FFTAnalysis(typeOfData,loggedVariable)
 %       crazyflie: 2=kalman.stateZ, 3=gyro.x (roll), 6=gyro.y (pitch)
 
 global dataMat;
-%global freqsMat;
-
 %close all;
 %clearvars;
-%dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data');
-%cd /Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
+% dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data');
+% cd /Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
+
+global estFreqsMat;
+estFreqsMat=cell(size(dataMat,1)-1,2);
+estFreqsMat(:,1)=dataMat(2:end,1);
+switch typeOfData
+    case 1
+        estFreqsMat(1,2)={[1.5]};       %f0-d0
+        estFreqsMat(2,2)={[1.5, 4]};    %f10-d3.5
+        estFreqsMat(3,2)={[1.5]};       %f13-d0
+        estFreqsMat(4,2)={[1.5, 5.75]}; %f13-d3.5
+        estFreqsMat(5,2)={[1.5, 6.75]}; %f15-d3.5
+    case 2
+        switch loggedVariable
+            case 2
+                estFreqsMat(1,2)={[0.25, 1.25]};%, 22, 23, 44.5, 45.5]};                              %f0-d0
+                estFreqsMat(2,2)={[0.25, 1.25]};%, 4]};           %f10-d3.5
+                estFreqsMat(3,2)={[0.25, 1.25]};                           %f13-d0  
+                estFreqsMat(4,2)={[0.25, 1.25]}; %f13-d3.5
+                estFreqsMat(5,2)={[0.25, 1.25]};       %f15-d3.5
+            case 3
+            case 6
+                estFreqsMat(1,2)={[1, 8]};                              %f0-d0
+                estFreqsMat(2,2)={[1, 4, 7.75, 12.25, 16.5]};           %f10-d3.5
+                estFreqsMat(3,2)={[1, 7.25]};                           %f13-d0  
+                estFreqsMat(4,2)={[1, 2.75, 5.75, 6.75 11.5 17.25 23]}; %f13-d3.5
+                estFreqsMat(5,2)={[1.5, 5.25, 6.75, 13.75 20.5]};       %f15-d3.5
+        end
+end
+
 useGradientColors=1;
 %figure();  
 
@@ -58,7 +85,7 @@ for i=2:size(dataMat,1)       %loop through environment
                 end
                 Fs=1/T;     %frequency is 1/T
                 dataSize=length(powerData);  %size of both data arrays
-                t=(0:dataSize-1)*T;    %create time vector
+                %t=(0:dataSize-1)*T;    %create time vector
                 y=fft(detrend(powerData));      %fft of powerData
 
                 P2=abs(y/dataSize);
@@ -68,199 +95,19 @@ for i=2:size(dataMat,1)       %loop through environment
                 f=Fs*(0:(dataSize/2))/dataSize;
                 
                 P1Matrix(k-1,:)=P1; %#ok<*SAGROW>
-                %totalPowerSum=totalPowerSum+sum(powerData,'all');
-                
-                %loglog(f,P1);
             end
         end
         if ~isempty(dataMat{i,j}) && ~isempty(dataMat{i,j}{typeOfData,loggedVariable})     %check if there was any data for this controller and add controller to list of names if yes
             controllerNames=[controllerNames, dataMat{1,j}];
             smoothedData=smooth(mean(P1Matrix),15);%,11,'sgolay',0);     %smooth data //sometimes 15//
             smoothedData=smooth(smoothedData,10);
+            smoothedData=smooth(smoothedData,5);
             fftMat(i,j)={[f',smoothedData]}; %save the fft graphed data [f,smoothed data]
         end
-%             if typeOfData==2 && loggedVariable==2  %for zpos data, want data*f (normalized)
-%                 smoothedData=smoothedData.*f';
-% %             elseif typeOfData==2 && loggedVariable==6
-% %                 smoothedData=smoothedData.*f';
-%             end  
-% %get raw peaks
-% %             rawPeaksMat=getRawPeaks(rawPeaksMat,f',smoothedData,i,j);
-% %             if typeOfData==1
-% %                 lowFreqCutoff=1;   %cutoff value found by inspection of graphs
-% %                 highFreqCutoff=10;
-% %             else
-% %                 switch loggedVariable
-% %                     case 2
-% %                         lowFreqCutoff=1;   %cutoff value found by inspection of graphs
-% %                         highFreqCutoff=10;
-% %                     case 6
-% %                         lowFreqCutoff=.5;  %cutoff value found by inspection of graphs
-% %                         highFreqCutoff=30;
-% %                 end
-% %             end
-% %             fCounter=1;
-% %             fStart=0;
-% %             fEnd=0;
-% %             while f(fCounter)<lowFreqCutoff
-% %                 fStart=fCounter;
-% %                 fCounter=fCounter+1;
-% %             end
-% %             fCounter=1;
-% %             while f(fCounter)<highFreqCutoff
-% %                 fEnd=fCounter;
-% %                 fCounter=fCounter+1;
-% %             end
-% %             %smoothedData=smoothedData.*f';
-% %             fTemp=f(fStart:fEnd);  %eliminate anything below cutoff Hz
-% %             smoothedDataTemp=smoothedData(fStart:fEnd);  %eliminate anything below cutoff Hz
-% %             %if typeOfData==2 && loggedVariable==2
-% %             %    [pks,locs,width,prom] = findpeaks(smoothedDataTemp.*fTemp');  %find peaks for zpos*freq
-% %             %else
-% %                 [pks,locs,width,prom] = findpeaks(smoothedDataTemp);  %find peaks
-% %             %end
-% %             freqPks=zeros(length(pks),1);
-% %             for l=1:length(pks)     %use locs to find the corresponding freqs for the peaks
-% %                 freqPks(l)=fTemp(locs(l));
-% %             end
-% %             [B,I]=sort(prom,'descend');     %sort prominences from largest to smallest
-% %             if typeOfData==1
-% %                 if B(2)>=0.005
-% %                     rawPeaksMat(i,j)={[freqPks(I(1:2)),pks(I(1:2))]};
-% %                 else
-% %                     rawPeaksMat(i,j)={[freqPks(I(1)),pks(I(1))]};
-% %                 end
-% %             else
-% %                 switch loggedVariable
-% %                     case 2 %zpos
-% %                         rawPeaksMat(i,j)={[freqPks(sort(I(1:2))),pks(sort(I(1:2)))]};  
-% %                     case 6 %pitch                    
-% %                         rawPeaksMat(i,j)={[freqPks(sort(I(1:4))),pks(sort(I(1:4)))]};     
-% %                 end
-% %             end
-%             
-% %plot fft
-%             pidtParsed=strsplit(controllerNames(end),' ');  %get array of [p,i,d,t] from folder name
-%             p=strsplit(pidtParsed(1),'=');
-%             pval=str2double(p(2));
-%             c=[1-pval/5 0 pval/5];
-%             if useGradientColors==1
-%                 %if typeOfData==2 && loggedVariable==2
-%                     h1=loglog(f,smoothedData,'Color',c,'Linewidth',2);
-%                     handles=[handles h1];
-%                 %else
-%                 %    h1=loglog(f,smoothedData,'Color',c,'Linewidth',2);
-%                 %    handles=[handles h1];
-%                 %end
-%             else
-%                 %if typeOfData==2 && loggedVariable==2
-%                     h1=loglog(f,smoothedData,'Linewidth',2.5);
-%                     handles=[handles h1];
-%                 %else
-%                 %    h1=loglog(f,smoothedData,'Linewidth',2.5);
-%                 %    handles=[handles h1];
-%                 %end
-%             end
-%             hold on;
-%             
-% %plot raw peak points
-% % %             plot(rawPeaksMat{i,j}(1,1),rawPeaksMat{i,j}(1,2),'c*','HandleVisibility','off');
-% % %             if size(rawPeaksMat{i,j},1)>1
-% % %                 plot(rawPeaksMat{i,j}(2,1),rawPeaksMat{i,j}(2,2),'c*','HandleVisibility','off');
-% % %             end
-% 
-% %graph fitted peaks and plot fitted peak points
-% %             if typeOfData==1
-% %                 index1=find(fftMat{i,j}(:,1) == rawPeaksMat{i,j}(1,1));
-% %                 index1Min=index1-10;
-% %                 index1Max=index1+10;
-% %                 fitX1=f(index1Min:index1Max)';
-% %                 fitCurve1=polyfit(fitX1,smoothedData(index1Min:index1Max),2);
-% %                 fitY1=polyval(fitCurve1,fitX1);
-% %                 plot(fitX1,fitY1,'Color',[0.4660 0.6740 0.1880],'Linewidth',1.5);
-% %                 [maxVal1,I1]=max(fitY1);
-% %                 if size(rawPeaksMat{i,j},1)>1
-% %                     index2=find(fftMat{i,j}(:,1) == rawPeaksMat{i,j}(2,1));
-% %                     index2Min=index2-10;
-% %                     index2Max=index2+10;
-% %                     fitX2=f(index2Min:index2Max)';
-% %                     fitCurve2=polyfit(fitX2,smoothedData(index2Min:index2Max),2);
-% %                     fitY2=polyval(fitCurve2,fitX2);
-% %                     plot(fitX2,fitY2,'Color',[0.4660 0.6740 0.1880],'Linewidth',1.5);
-% %                     [maxVal2,I2]=max(fitY2);
-% %                     fitPeaksMat(i,j)={[[fitX1(I1); fitX2(I2)],[fitY1(I1); fitY2(I2)]]};
-% %                     plot(fitPeaksMat{i,j}(1,1),fitPeaksMat{i,j}(1,2),'k*','HandleVisibility','off');
-% %                     plot(fitPeaksMat{i,j}(2,1),fitPeaksMat{i,j}(2,2),'k*','HandleVisibility','off');
-% %                 else
-% %                     fitPeaksMat(i,j)={[fitX1(I1),fitY1(I1)]};
-% %                     plot(fitPeaksMat{i,j}(1,1),fitPeaksMat{i,j}(1,2),'k*','HandleVisibility','off');
-% %                 end
-% %                 integratedPower=trapz(smoothedData);
-% %                 integPowerMat(i,j)={integratedPower};
-% %             else
-% %                 fitPeaksArray=[];
-% %                 pointsOnEachSide=10;    %number of points to take on each side of the raw peak
-% %                 for l=1:size(rawPeaksMat{i,j},1)
-% %                     index1=find(fftMat{i,j}(:,1) == rawPeaksMat{i,j}(l,1)); %find index of the raw peak in fftMat
-% %                     if index1-pointsOnEachSide<1    %check that index1Min is within range of points
-% %                         index1Min=1;    %not in range so make it the first value
-% %                     else
-% %                         index1Min=index1-pointsOnEachSide;  %in range
-% %                     end
-% %                     if index1+pointsOnEachSide>size(smoothedData)   %check that index1Min is within range of points
-% %                         index1Max=size(smoothedData);   %not in range so make it the last value
-% %                     else
-% %                         index1Max=index1+pointsOnEachSide;  %in range
-% %                     end
-% %                     fitX1=f(index1Min:index1Max)';
-% %                     fitCurve1=polyfit(fitX1,smoothedData(index1Min:index1Max),2);
-% %                     fitY1=polyval(fitCurve1,fitX1);
-% %                     plot(fitX1,fitY1,'Color',[0.4660 0.6740 0.1880],'Linewidth',1.5);
-% %                     [maxVal1,I1]=max(fitY1);
-% %                     fitPeaksArray=[fitPeaksArray; fitX1(I1),fitY1(I1)];
-% %                     plot(fitPeaksArray(l,1),fitPeaksArray(l,2),'k*','HandleVisibility','off');
-% %                 end
-% %                 fitPeaksMat(i,j)={fitPeaksArray};
-% %             end
-% %             %P,ftunnel,windspeed,diameter,sheddingfreq,apeak,fpeak
-% %             graphData=[graphData;[repmat(pval,size(fitPeaksMat{i,j},1),1),...
-% %             repmat(fTunnel,size(fitPeaksMat{i,j},1),1),repmat(windSpeed,size(fitPeaksMat{i,j},1),1),...
-% %             repmat(diameter,size(fitPeaksMat{i,j},1),1),repmat(sheddingFreq,size(fitPeaksMat{i,j},1),1),...
-% %             fitPeaksMat{i,j}(:,2),fitPeaksMat{i,j}(:,1)]];
-%         end
-%     end
-%     controllerNames = controllerNames(~cellfun('isempty',controllerNames));     %remove empty strings from controller name list
-%     title(['Environment = ',dataMat{i,1}]);
-%     set(gca,'TickLabelInterpreter','Latex','Fontsize',10);
-%     xlabel('Frequency [Hz]','Interpreter','Latex');
-%     ylabel('FFT','Interpreter','Latex');
-%     %clear xlim;
-%     xlim([5*10^(-1) 13]);
-%     if typeOfData==1
-%         ylim([0.01 0.15]);
-%         sgtitle('Power')
-%     elseif typeOfData==2
-%         switch loggedVariable
-%             case 2
-%                 ylim([1e-5 4e-3]);
-%                 sgtitle('Z Position*Frequency');
-%             case 3
-%                 ylim([4e-2 10]);
-%                 sgtitle('Roll');
-%             case 6
-%                 ylim([4e-2 20]);
-%                 sgtitle('Pitch');
-%         end
-%     end
-%     grid on;
-%     legend(handles,string(controllerNames));
-%     hold off;
-
-
     end
 end
 rawPeaksMat=getRawPeaks(fftMat,typeOfData,loggedVariable);
-plotAnalysis(fftMat,rawPeaksMat,typeOfData,loggedVariable,useGradientColors);
+fitPeaksMat=plotAnalysis(fftMat,rawPeaksMat,typeOfData,loggedVariable,useGradientColors);
 %% second graph subplots
 % 
 % %            1    2        3        4          5         6     7

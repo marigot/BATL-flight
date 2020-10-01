@@ -5,7 +5,7 @@ imported packages
 import logging
 import cflib.crtp
 import time
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import datetime
 import cflib.drivers.crazyradio as crazyradio
 
@@ -21,7 +21,7 @@ global variables
 #change this to the radio ID
 URI = 'radio://0/80/2M'
 radio=crazyradio.Crazyradio()
-radio.set_channel(75)
+radio.set_channel(76)
 #set up LogConfig objects for logging
 #log_conf1 = LogConfig(name='rpy',period_in_ms=10)
 #log_conf2 = LogConfig(name='xy',period_in_ms=10)
@@ -98,7 +98,7 @@ pidRateYawD=[]
 chunksT=[]
 #file I/O initialization
 currentTime=str(datetime.datetime.now())     #change file label below#
-fileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_f15_d3.5_t36k_p0.5_i0.5_d0x.txt'
+fileName='/Users/grace/Documents/GitHub/Data/'+currentTime+'_f15_d3.5_t36k_p0.5_i0.5_d0x.txt'
 f=open(fileName,"w+")
 
 # Only output errors from the logging framework
