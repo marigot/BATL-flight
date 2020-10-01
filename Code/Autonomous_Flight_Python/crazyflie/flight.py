@@ -93,6 +93,7 @@ pidRatePitchD=[]
 pidRateYawP=[]
 pidRateYawI=[]
 pidRateYawD=[]
+
 #start/liftoffs/maneuvers/stop times array
 chunksT=[]
 #file I/O initialization
@@ -312,10 +313,12 @@ def value_callback4(timestamp,data,logconf):
         gxRaw=data['gyro.xRaw']
         gyroXRaw.append(gxRaw)
 
-        gxVariance=data['gyro.xVariance']
-        gyroXVariance.append(gxVariance)
+        #gxVariance=data['gyro.xVariance']
+        #gyroXVariance.append(gxVariance)
+
+        zrange=data['range.zrange']
     
-        tempStr=',{},{},{}'.format(gx,gxRaw,gxVariance)
+        tempStr=',{},{},{}'.format(gx,gxRaw,zrange)
         f.write(tempStr)
 
 def value_callback5(timestamp,data,logconf):
@@ -323,13 +326,27 @@ def value_callback5(timestamp,data,logconf):
         gy=data['gyro.y']
         gyroY.append(gy)
         
-        gyRaw=data['gyro.yRaw']
-        gyroYRaw.append(gyRaw)
+        #gyRaw=data['gyro.yRaw']
+        #gyroYRaw.append(gyRaw)
 
-        gyVariance=data['gyro.yVariance']
-        gyroYVariance.append(gyVariance)
+        #gyVariance=data['gyro.yVariance']
+        #gyroYVariance.append(gyVariance)
+
+        #ff=data['sitAw.FFAccWZDetected']
+        accz=data['acc.z']
+        
+        b=data['motor.m1']
+        vbat.append(b)
     
-        tempStr=',{},{},{}'.format(gy,gyRaw,gyVariance)
+        tempStr=',{},{},{}'.format(gy,accz,b)
+        f.write(tempStr+'\n')
+
+def value_callback6(timestamp,data,logconf):
+    if not f.closed:
+        m1x=data['motor.m2']
+        m2x=data['motor.m3']
+        m3x=data['motor.m4']
+        tempStr=',{},{},{}'.format(m1x,m2x,m3x)
         f.write(tempStr+'\n')
 #returns and saves data for log block 4 (pid_attitude.roll_outP/I/D, pid_attitude.pitch_outP/I/D)
 ##def value_callback4(timestamp,data,logconf):
@@ -451,11 +468,19 @@ def start_value_printing(scf):
 ##    log_conf3.add_variable('pm.vbat','float')'''
     log_conf4.add_variable('gyro.x','float')
     log_conf4.add_variable('gyro.xRaw','int16_t')
-    log_conf4.add_variable('gyro.xVariance','float')
+#    log_conf4.add_variable('gyro.xVariance','float')
+    log_conf4.add_variable('range.zrange','uint16_t')
     
     log_conf5.add_variable('gyro.y','float')
-    log_conf5.add_variable('gyro.yRaw','int16_t')
-    log_conf5.add_variable('gyro.yVariance','float')
+#   log_conf5.add_variable('gyro.yRaw','int16_t')
+#    log_conf5.add_variable('gyro.yVariance','float')
+#    log_conf5.add_variable('sitAw.FFAccWZDetected','uint8_t')
+    log_conf5.add_variable('acc.z','float')
+    log_conf5.add_variable('motor.m1','int32_t')
+
+    log_conf6.add_variable('motor.m2','int32_t')
+    log_conf6.add_variable('motor.m3','int32_t')
+    log_conf6.add_variable('motor.m4','int32_t')
 
 ##    log_conf4.add_variable('pid_attitude.roll_outP','float')
 ##    log_conf4.add_variable('pid_attitude.roll_outI','float')
@@ -487,19 +512,19 @@ def start_value_printing(scf):
     scf.cf.log.add_config(log_conf3)
     scf.cf.log.add_config(log_conf4)
     scf.cf.log.add_config(log_conf5)
-    #scf.cf.log.add_config(log_conf6)
+    scf.cf.log.add_config(log_conf6)
     #log_conf1.data_received_cb.add_callback(value_callback1)
     #log_conf2.data_received_cb.add_callback(value_callback2)
     log_conf3.data_received_cb.add_callback(value_callback3)
     log_conf4.data_received_cb.add_callback(value_callback4)
     log_conf5.data_received_cb.add_callback(value_callback5)
-    #log_conf6.data_received_cb.add_callback(value_callback6)
+    log_conf6.data_received_cb.add_callback(value_callback6)
     #log_conf1.start()
     #log_conf2.start()
     log_conf3.start()
     log_conf4.start()
     log_conf5.start()
-    #log_conf6.start()
+    log_conf6.start()
 
 ###modified from example code flowsequenceSync.py###
 #main function
@@ -510,14 +535,14 @@ if __name__ == '__main__':
 
     with SyncCrazyflie(URI, cf=Crazyflie(rw_cache='./cache')) as scf:
         #labels all the saved logging variables
-        f.write('timestamp,'
+        f.write('timestamp, '
                 #'controller.pitch,controller.pitchRate,controller.roll,controller.rollRate,controller.yaw,controller.yawRate,'
                 #'stateEstimate.x,stateEstimate.y,stateEstimate.z,'
                 #'gyro.x,gyro.y,gyro.z,'
                 #'kalman.stateX,kalman.stateY,kalman.stateZ,'
-                'kalman.stateZ,'
+                'kalman.stateZ, '
                 #'stateEstimate.x,stateEstimate.y,stateEstimate.z,'
-                'gyro.x,gyro.xRaw,gyro.xVariance,gyro.y,gyro.yRaw,gyro.yVariance'
+                'gyro.x, gyro.xRaw, range.zrange, gyro.y, acc.z, pm.vbat, '#gyro.yVariance'
                 #'kalman.stateZ,'
                 #'pid_attitude.roll_outP,pid_attitude.roll_outI,pid_attitude.roll_outD,'
                 #'pid_attitude.pitch_outP,pid_attitude.pitch_outI,pid_attitude.pitch_outD,'
@@ -525,6 +550,7 @@ if __name__ == '__main__':
                 #'pid_rate.roll_outP,pid_rate.roll_outI,pid_rate.roll_outD,'
                 #'pid_rate.pitch_outP,pid_rate.pitch_outI,pid_rate.pitch_outD,'
                 #'pid_rate.yaw_outP,pid_rate.yaw_outI,pid_rate.yaw_outD,'
+                'M1X, M2X, M3X, M4X'
                 '\n')
         #starts logging
         reset_estimator(scf)
@@ -600,7 +626,7 @@ if __name__ == '__main__':
         log_conf3.stop()
         log_conf4.stop()
         log_conf5.stop()
-        #log_conf6.stop()
+        log_conf6.stop()
         #print('stopped logging')
         
         
@@ -609,7 +635,7 @@ if __name__ == '__main__':
         log_conf3.delete()
         log_conf4.delete()
         log_conf5.delete()
-        #log_conf6.delete()
+        log_conf6.delete()
         time.sleep(1)
         #close writing to file
         f.close()
@@ -662,67 +688,67 @@ if __name__ == '__main__':
 
         #print(gyroXVariance)
         
-        plt.figure(currentTime)
-        plt.rcParams.update({'font.size': 8})
-        
-
-        plt.subplot(331)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-        plt.plot(timePlot,gyroXRaw, label='gyro.xRaw')
-        plt.ylim(-1500,1500)
-        plt.grid(True)
-        plt.legend()
-        
-        plt.subplot(334)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-
-        plt.plot(timePlot,gyroX, label='gyro.x')
-        plt.ylim(-300,300)
-        plt.grid(True)
-        plt.legend()
-
-
-        plt.subplot(337)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-        plt.plot(timePlot,gyroXVariance, label='gyro.xVariance')
-        plt.ylim(gyroXVariance[0]-.25,gyroXVariance[0]+.25)
-        plt.grid(True)
-        plt.legend()
-
-        plt.subplot(332)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-        plt.plot(timePlot,gyroYRaw, label='gyro.yRaw')
-        plt.ylim(-1500,1500)
-        plt.grid(True)
-        plt.legend()
-
-        plt.subplot(335)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-        plt.plot(timePlot,gyroY, label='gyro.y')
-        plt.ylim(-300,300)
-        plt.grid(True)
-        plt.legend()
-
-        plt.subplot(338)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-        plt.plot(timePlot,gyroYVariance, label='gyro.yVariance')
-        plt.ylim(gyroYVariance[0]-.25,gyroYVariance[0]+.25)
-        plt.grid(True)
-        plt.legend()
-
-        plt.subplot(333)
-        for xc in chunksT:
-            plt.axvline(x=xc,color='r')
-        plt.plot(timePlot,kalmanZ, label='kalman.z')
-        plt.ylim(.3,.4)
-        plt.grid(True)
-        plt.legend()
+##        plt.figure(currentTime)
+##        plt.rcParams.update({'font.size': 8})
+##        
+##
+##        plt.subplot(331)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##        plt.plot(timePlot,gyroXRaw, label='gyro.xRaw')
+##        plt.ylim(-1500,1500)
+##        plt.grid(True)
+##        plt.legend()
+##        
+##        plt.subplot(334)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##
+##        plt.plot(timePlot,gyroX, label='gyro.x')
+##        plt.ylim(-300,300)
+##        plt.grid(True)
+##        plt.legend()
+##
+##
+##        plt.subplot(337)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##        plt.plot(timePlot,gyroXVariance, label='gyro.xVariance')
+##        plt.ylim(gyroXVariance[0]-.25,gyroXVariance[0]+.25)
+##        plt.grid(True)
+##        plt.legend()
+##
+##        plt.subplot(332)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##        plt.plot(timePlot,gyroYRaw, label='gyro.yRaw')
+##        plt.ylim(-1500,1500)
+##        plt.grid(True)
+##        plt.legend()
+##
+##        plt.subplot(335)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##        plt.plot(timePlot,gyroY, label='gyro.y')
+##        plt.ylim(-300,300)
+##        plt.grid(True)
+##        plt.legend()
+##
+##        plt.subplot(338)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##        plt.plot(timePlot,gyroYVariance, label='gyro.yVariance')
+##        plt.ylim(gyroYVariance[0]-.25,gyroYVariance[0]+.25)
+##        plt.grid(True)
+##        plt.legend()
+##
+##        plt.subplot(333)
+##        for xc in chunksT:
+##            plt.axvline(x=xc,color='r')
+##        plt.plot(timePlot,kalmanZ, label='kalman.z')
+##        plt.ylim(.3,.4)
+##        plt.grid(True)
+##        plt.legend()
 
 
 ##
@@ -947,5 +973,5 @@ if __name__ == '__main__':
 ##        plt.grid(True)
 ##        plt.legend()
                                
-        plt.show()
+##        plt.show()
 
