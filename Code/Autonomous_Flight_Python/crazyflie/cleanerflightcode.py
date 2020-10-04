@@ -31,7 +31,9 @@ log_confBaro = LogConfig(name='baro',period_in_ms=10)
 
 #store data for future use?
 #time
-startTime=time.time()
+startTime=0
+isStart=False
+#print(startTime)
 tarray=[]
 #kalman
 kalmanZ=[]
@@ -118,13 +120,18 @@ def reset_estimator(scf):
 def value_callbackKalman(timestamp,data,logconf):
     if not f.closed:
     #time
+        global isStart
         global startTime
         global isHover
         #differentiate time not hovering by a factor of 1000
+        if isStart==False:
+            startTime=time.time()
+            isStart=True;
         if isHover==False:
-            t=(time.time()-startTime)*1000
+            t=time.time()-startTime
             tarray.append(t/1000)
-        else
+            t= '*'+str(t)
+        else:
             t=time.time()-startTime
             tarray.append(t)
     #kalman.z
@@ -138,11 +145,11 @@ def value_callbackKalman(timestamp,data,logconf):
 def value_callbackAcc(timestamp,data,logconf):
     if not f.closed:
     #acc.z
-        accZ=data['acc.z']
-        acc.append(accZ)
+        acc=data['acc.z']
+        accZ.append(accZ)
     #write to file
-        tempStr=', {}'.format(accZ)
-        f.write(tempStr+'\n')
+        tempStr=', {}'.format(acc)
+        f.write(tempStr)
         
 ###gyro.x/gyro.y
 def value_callbackGyro(timestamp,data,logconf):
@@ -165,10 +172,10 @@ def value_callbackPm(timestamp,data,logconf):
         vbat.append(b)
     #write to file
         tempStr=', {}'.format(b)
-        f.write(tempStr+'\n')
+        f.write(tempStr)
         
 ###baro.asl/baro.pressure/baro.temp
-def value_callbackPm(timestamp,data,logconf):
+def value_callbackBaro(timestamp,data,logconf):
     if not f.closed:
     #baro.asl
         aslData=data['baro.asl']
@@ -224,7 +231,7 @@ def start_value_printing(scf):
 #main function
 if __name__ == '__main__':
     
-    global isHover
+#    global isHover
     
     # Initialize the low-level drivers (don't list the debug drivers)
     cflib.crtp.init_drivers(enable_debug_driver=False)
@@ -242,25 +249,25 @@ if __name__ == '__main__':
 
         #liftoff
         for y in range(10):
-            cf.commander.send_hover_setpoint(0, 0, 0, y / 25) #rise up to .4 m
+#            cf.commander.send_hover_setpoint(0, 0, 0, y / 25) #rise up to .4 m
             time.sleep(0.1)
         #hover
         hoverTime=time.time()
         while time.time()-hoverTime<70:
             if time.time()-hoverTime>5 and time.time()-hoverTime<65:
                 isHover=True
-            else
+            else:
                 if isHover==True:
                     print("landing soon")
                 isHover=False
-            cf.commander.send_hover_setpoint(0, 0, 0, (0.42-.075)) #hover point
+#            cf.commander.send_hover_setpoint(0, 0, 0, (0.42-.075)) #hover point
             time.sleep(0.1)
         #landing
         for y in range(10):
-            cf.commander.send_hover_setpoint(0, 0, 0, (10 - y) / 25)
+#            cf.commander.send_hover_setpoint(0, 0, 0, (10 - y) / 25)
             time.sleep(0.1)
 
-        cf.commander.send_stop_setpoint()
+#        cf.commander.send_stop_setpoint()
         
         #stop logging and clear the log configs
         log_confKalman.stop()
