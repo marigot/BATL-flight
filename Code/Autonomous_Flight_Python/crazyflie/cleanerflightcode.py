@@ -55,8 +55,8 @@ isHover=False
 
 
 #file I/O initialization
-currentTime=str(datetime.datetime.now())     #change file label below#
-fileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_f15_d3.5_t36k_p0.5_i0.5_d0x.txt'
+currentTime=str(datetime.datetime.now())                        ####change file label below####
+fileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
 f=open(fileName,"w+")
 
 # Only output errors from the logging framework
