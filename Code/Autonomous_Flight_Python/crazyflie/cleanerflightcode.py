@@ -120,10 +120,13 @@ def value_callbackKalman(timestamp,data,logconf):
     #time
         global startTime
         global isHover
-        
-        if isHover
-        t=time.time()-startTime
-        tarray.append(t)
+        #differentiate time not hovering by a factor of 1000
+        if isHover==False:
+            t=(time.time()-startTime)*1000
+            tarray.append(t/1000)
+        else
+            t=time.time()-startTime
+            tarray.append(t)
     #kalman.z
         kz=data['kalman.stateZ']
         kalmanZ.append(kz)
@@ -247,40 +250,31 @@ if __name__ == '__main__':
             if time.time()-hoverTime>5 and time.time()-hoverTime<65:
                 isHover=True
             else
+                if isHover==True:
+                    print("landing soon")
                 isHover=False
-                
             cf.commander.send_hover_setpoint(0, 0, 0, (0.42-.075)) #hover point
             time.sleep(0.1)
         #landing
         for y in range(10):
-            print(y)
-            if  y==0:
-                print('landing time is:',t)
-                chunksT.append(t)
             cf.commander.send_hover_setpoint(0, 0, 0, (10 - y) / 25)
             time.sleep(0.1)
-        print('landed time is:',t)
-        print (ogkz)
-        chunksT.append(t)
-        #time.sleep(.5)
+
         cf.commander.send_stop_setpoint()
         
         #stop logging and clear the log configs
-        #log_confKalman.stop()
-        #log_conf2.stop()
         log_confKalman.stop()
+        log_confAcc.stop()
         log_confGyro.stop()
+        log_confPm.stop()
         log_confBaro.stop()
-        #log_confAcc.stop()
-        #print('stopped logging')
         
-        
-        #log_confKalman.delete()
-        #log_conf2.delete()
         log_confKalman.delete()
+        log_confAcc.delete()
         log_confGyro.delete()
+        log_confPm.delete()
         log_confBaro.delete()
-        #log_confAcc.delete()
         time.sleep(1)
+        
         #close writing to file
         f.close()
