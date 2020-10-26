@@ -5,7 +5,8 @@ imported packages
 import logging
 import cflib.crtp
 import time
-#import matplotlib.pyplot as plt
+import math
+import matplotlib.pyplot as plt
 import datetime
 import cflib.drivers.crazyradio as crazyradio
 
@@ -49,6 +50,11 @@ vbat=[]
 asl=[]
 pressure=[]
 temp=[]
+#setpoint
+setPoints=[]
+dSetPoints=[]
+tSetPoints=[]
+
 
 '''tunnelMiddle=.42 #middle of tunnel in meters
 cylinder=.015/2 #cylinder radius meters'''
@@ -60,7 +66,8 @@ isHover=False
 #file I/O initialization
 currentTime=str(datetime.datetime.now())                        ####change file label below####
 #fileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
-fileName='/Users/grace/Documents/crazyflie/Data/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
+fileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_setpoints_amp_20cm.txt'
+#fileName='/Users/grace/Documents/crazyflie/Data/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
 f=open(fileName,"w+")
 
 # Only output errors from the logging framework
@@ -131,7 +138,7 @@ def value_callbackKalman(timestamp,data,logconf):
             isStart=True;
         if isHover==False:
             t=time.time()-startTime
-            tarray.append(t/1000)
+            tarray.append(t)
             t= '*'+str(t)
         else:
             t=time.time()-startTime
@@ -257,15 +264,33 @@ if __name__ == '__main__':
             time.sleep(0.1)
         #hover
         hoverTime=time.time()
+        freq=6
+        amp=.5
+        halfPeriod=0
         while time.time()-hoverTime<hoverSpan:
+            #currentTime=time.time()
             if time.time()-hoverTime>5 and time.time()-hoverTime<hoverSpan-5:
                 isHover=True
             else:
                 if isHover==True:
                     print("landing soon")
                 isHover=False
-            cf.commander.send_hover_setpoint(0, 0, 0, (0.42-.075)) #hover point
-            time.sleep(0.1)
+            if time.time()-hoverTime>halfPeriod*(1/(freq*2)):
+                tSetPoints.append(time.time()-startTime)
+                if halfPeriod%2==0:
+                    sp=(0.42-.075)+amp
+                else:
+                    sp=(0.42-.075)-amp
+                halfPeriod=halfPeriod+1
+                setPoints.append(sp)
+                    
+            #cf.commander.send_hover_setpoint(0, 0, 0, (0.42-.075)) #hover point
+##            sp=(0.42-.075)+amp*math.sin(freq*2*math.pi*(time.time()))
+##            setPoints.append(sp)
+##            tSetPoints.append(time.time())
+                
+            cf.commander.send_hover_setpoint(0, 0, 0, sp)
+            time.sleep(0.0001)
         #landing
         for y in range(10):
             cf.commander.send_hover_setpoint(0, 0, 0, (10 - y) / 25)
@@ -289,3 +314,17 @@ if __name__ == '__main__':
         
         #close writing to file
         f.close()
+
+print(tSetPoints)
+print(setPoints)
+print(tarray)
+print(kalmanZ)
+plt.plot(tSetPoints,setPoints)
+#plt.plot(tSetPoints,dSetPoints)
+plt.show()
+
+##newFileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_sp_amp_20cm.txt'
+##newF=open(fileName,"w+")
+##for y in range(len(tSetPoints)):
+##    newF.write('{},{}\n',tSetPoints[y],setPoints[y])
+##newF.close()
