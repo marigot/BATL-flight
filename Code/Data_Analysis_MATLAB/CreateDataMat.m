@@ -92,9 +92,6 @@ for i=1:numEnvironmentFolders      %loop through all frequency folders
             else
                 file(1,1)= {'Timestamp [s]'};       %label Timestamp column
                 file(1,2) = {'Power [W]'};          %label Power column
-%                 time = csvread(powerFiles(k).name,20,0,[20,0,1499,0]);       %reads time data from line 501 to line 1250
-%                 current = csvread(powerFiles(k).name,20,1,[20,1,1499,1]);    %reads current data from line 21 to line 1500
-%                 voltage = csvread(powerFiles(k).name,20,2,[20,2,1499,2]);    %reads voltage data from line 21 to line 1500
                 time = csvread(powerFiles(k).name,500,0,[500,0,1249,0]);       %reads time data from line 501 to line 1250 (20s-45s)
                 current = csvread(powerFiles(k).name,500,1,[500,1,1249,1]);    %reads current data from line 21 to line 1500
                 voltage = csvread(powerFiles(k).name,500,2,[500,2,1249,2]);    %reads voltage data from line 21 to line 1500
