@@ -120,7 +120,9 @@ for i=1:numEnvironmentFolders      %loop through all frequency folders
                     file(1,n)=headers(1,n);
                 end         
                 txtData=textscan(fid,'%d %f %f %f %f %f %f %f','Delimiter',',');    %read the txt file
+                %%%txtData=textscan(fid,'%c %f %f %f %f %f %f %f','Delimiter',',');    %read the txt file
                 for n=1:size(txtData,2)             %loop through txtData and put each column into right place
+                    %%%rangeBegin=
                     txtData(1,n)={txtData{1,n}(2001:4500,1)};   %reads data from 20 seconds to 45 seconds
                     file(2,n)=txtData(1,n);
                 end

@@ -9,7 +9,7 @@ rawPeaksMat(1,:)=dataMat(1,:);
 % if typeOfData==2 && loggedVariable==2
 %     searchThreshold=.25;
 % else
-searchThreshold=.75;
+searchThreshold=.75; %range to look on each side of the estimated peaks
 % end
 
 freqInterval=0; %the x-distance between the points of the fft. it gets set in the loop.
@@ -28,8 +28,9 @@ for i=2:size(fftMat,1)  %loop through environments
 %             end
             peaks=[];
             for a=1:numOfPeaks
-                indices=find((locs<estFreqsMat{i-1,2}(a)+searchThreshold) & (locs>estFreqsMat{i-1,2}(a)-searchThreshold));
-                if isempty(indices)
+                indices=find((locs<estFreqsMat{i-1,2}(a)+searchThreshold)...
+                    & (locs>estFreqsMat{i-1,2}(a)-searchThreshold)); %find index for the actual peak location based on the estimated peak
+                if isempty(indices) %peak wasn't found. look for inflection point instead
                     begFreq=estFreqsMat{i-1,2}(a)-freqInterval/2;
                     endFreq=estFreqsMat{i-1,2}(a)+freqInterval/2;
                     if begFreq<fftMat{i,j}(2,1)
@@ -57,7 +58,7 @@ for i=2:size(fftMat,1)  %loop through environments
                     concavity=diff(ampSection,2);
                     [B,I]=sort(concavity);
                     peaks=[peaks; freqSection(I(1)) ampSection(I(1))];
-                else
+                else %peak found
                     [B,I]=sort(10.^pks(indices),'descend');
                     peaks=[peaks; locs(indices(I(1))) B(1)]; 
                 end
