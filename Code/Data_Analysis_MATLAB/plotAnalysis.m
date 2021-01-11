@@ -131,6 +131,7 @@ for i=2:size(fftMat,1)       %loop through environment
     %xlim([0 2]);
     if typeOfData==1
         ylim([0.01 0.15]);
+        xlim([0 14]);
         sgtitle('Power')
     elseif typeOfData==2
         switch loggedVariable

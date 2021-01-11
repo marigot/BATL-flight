@@ -6,8 +6,8 @@ function [fftMat,rawPeaksMat,fitPeaksMat]=FFTAnalysis(typeOfData,loggedVariable)
 
 global dataMat;
 close all;
-% clearvars;
-dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data');
+%radataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data',0);
+%dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data_New/Test_Flights',1);
 cd /Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
 
 global estFreqsMat;
@@ -34,7 +34,7 @@ switch typeOfData
                 estFreqsMat(2,2)={[1, 4, 7.75, 12.25, 16.5]};           %f10-d3.5
                 estFreqsMat(3,2)={[1, 7.25]};                           %f13-d0  
                 estFreqsMat(4,2)={[1, 2.75, 5.75, 6.75 11.5 17.25 23]}; %f13-d3.5
-                estFreqsMat(5,2)={[1.5, 5.25, 6.75, 13.75 20.5]};       %f15-d3.5
+                estFreqsMat(5,2)={[1.5, 5.5, 6.75, 13.75 20.5]};       %f15-d3.5
         end
 end
 

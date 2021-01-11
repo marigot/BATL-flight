@@ -127,18 +127,14 @@ for i=1:numEnvironmentFolders      %loop through all frequency folders
                 txtData=textscan(fid,delimiterString,'Delimiter',',');    %read the txt file
                 notStarred=find(contains(txtData{1,1},'*')==0);           %find the hover-only data
                 for n=1:size(txtData,2)             %loop through txtData and put each column into right place
-                    if isNewData
-                        if n==1
-                            txtData(1,n)={str2double(txtData{1,n}(notStarred,1))};    %convert hover-only timestamps to doubles and save
-                        else
-                            txtData(1,n)={txtData{1,n}(notStarred,1)};                %reads data from hover flight
-                        end
+                    if isOldData
+                        txtData(1,n)={txtData{1,n}(2001:4500,1)};   %reads data from 20 seconds to 45 seconds
                     else
-                        if n==1
-                            txtData(1,n)={str2double(txtData{1,n}(2001:4500,1))};   %reads data from 20 seconds to 45 seconds
-                        else
-                            txtData(1,n)={txtData{1,n}(2001:4500,1)};   %reads data from 20 seconds to 45 seconds
-                        end
+                        %                     if n==1
+%                         txtData(1,n)={str2double(txtData{1,n}(notStarred,1))};    %convert hover-only timestamps to doubles and save
+%                     else
+%                         txtData(1,n)={txtData{1,n}(notStarred,1)};                %reads data from hover flight
+%                     end
                     end
                     file(2,n)=txtData(1,n);
                 end

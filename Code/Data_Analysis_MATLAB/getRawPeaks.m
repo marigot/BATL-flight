@@ -9,17 +9,17 @@ rawPeaksMat(1,:)=dataMat(1,:);
 % if typeOfData==2 && loggedVariable==2
 %     searchThreshold=.25;
 % else
-searchThreshold=.75;
+searchThreshold=.75; %how far to search on either side of the estimated frequency (in Hz)
 % end
 
 freqInterval=0; %the x-distance between the points of the fft. it gets set in the loop.
-concavityRange=15;
+concavityRange=15; %how many points to each side of the center point to search for the inflection point. concavityRange*freqInterval=the freq range being searched(in Hz)
 
 for i=2:size(fftMat,1)  %loop through environments
-    numOfPeaks=length(estFreqsMat{i-1,2});
+    numOfPeaks=length(estFreqsMat{i-1,2}); %number of peaks (predetermined by user in estFreqsMat)
     for j=2:size(fftMat,2)  %get actual peaks
-        if ~isempty(fftMat{i,j})
-            freqInterval=fftMat{i,j}(2,1)-fftMat{i,j}(1,1); %set the x-distance
+        if ~isempty(fftMat{i,j}) %check that there is data in this cell
+            freqInterval=fftMat{i,j}(2,1)-fftMat{i,j}(1,1); %set the x-distance between points
             %find peaks and prominences
 %             if typeOfData==2 && loggedVariable==2
 %                 [pks,locs,width,prom]=findpeaks(log10(fftMat{i,j}(:,2).*fftMat{i,j}(:,1)),fftMat{i,j}(:,1));
@@ -40,7 +40,7 @@ for i=2:size(fftMat,1)  %loop through environments
                     end
                     center=find(fftMat{i,j}(:,1)<=endFreq & fftMat{i,j}(:,1)>=begFreq);
                     if length(center)>1
-                        disp('what the heck');
+                        %disp('what the heck');
                         center=center(1);
                     end
                     

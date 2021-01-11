@@ -9,17 +9,17 @@ rawPeaksMat(1,:)=dataMat(1,:);
 % if typeOfData==2 && loggedVariable==2
 %     searchThreshold=.25;
 % else
-searchThreshold=.75; %range to look on each side of the estimated peaks
+searchThreshold=.75; %how far to search on either side of the estimated frequency (in Hz)
 % end
 
 freqInterval=0; %the x-distance between the points of the fft. it gets set in the loop.
-concavityRange=15;
+concavityRange=15; %how many points to each side of the center point to search for the inflection point. concavityRange*freqInterval=the freq range being searched(in Hz)
 
 for i=2:size(fftMat,1)  %loop through environments
-    numOfPeaks=length(estFreqsMat{i-1,2});
+    numOfPeaks=length(estFreqsMat{i-1,2}); %number of peaks (predetermined by user in estFreqsMat)
     for j=2:size(fftMat,2)  %get actual peaks
-        if ~isempty(fftMat{i,j})
-            freqInterval=fftMat{i,j}(2,1)-fftMat{i,j}(1,1); %set the x-distance
+        if ~isempty(fftMat{i,j}) %check that there is data in this cell
+            freqInterval=fftMat{i,j}(2,1)-fftMat{i,j}(1,1); %set the x-distance between points
             %find peaks and prominences
 %             if typeOfData==2 && loggedVariable==2
 %                 [pks,locs,width,prom]=findpeaks(log10(fftMat{i,j}(:,2).*fftMat{i,j}(:,1)),fftMat{i,j}(:,1));
@@ -28,9 +28,8 @@ for i=2:size(fftMat,1)  %loop through environments
 %             end
             peaks=[];
             for a=1:numOfPeaks
-                indices=find((locs<estFreqsMat{i-1,2}(a)+searchThreshold)...
-                    & (locs>estFreqsMat{i-1,2}(a)-searchThreshold)); %find index for the actual peak location based on the estimated peak
-                if isempty(indices) %peak wasn't found. look for inflection point instead
+                indices=find((locs<estFreqsMat{i-1,2}(a)+searchThreshold) & (locs>estFreqsMat{i-1,2}(a)-searchThreshold));
+                if isempty(indices)
                     begFreq=estFreqsMat{i-1,2}(a)-freqInterval/2;
                     endFreq=estFreqsMat{i-1,2}(a)+freqInterval/2;
                     if begFreq<fftMat{i,j}(2,1)
@@ -58,7 +57,7 @@ for i=2:size(fftMat,1)  %loop through environments
                     concavity=diff(ampSection,2);
                     [B,I]=sort(concavity);
                     peaks=[peaks; freqSection(I(1)) ampSection(I(1))];
-                else %peak found
+                else
                     [B,I]=sort(10.^pks(indices),'descend');
                     peaks=[peaks; locs(indices(I(1))) B(1)]; 
                 end

@@ -69,7 +69,7 @@ hoverHeight=0.42-.075+.07+.01
 #file I/O initialization
 currentTime=str(datetime.datetime.now())                        ####change file label below####
 #fileName='/Users/bewleylab/Documents/GitHub/Data/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
-fileName='/Users/bewleylab/Documents/GitHub/BATL-flight/Data_New/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.csv'
+fileName='/Users/bewleylab/Documents/GitHub/BATL-flight/Data_New/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
 #fileName='/Users/grace/Documents/crazyflie/Data/'+currentTime+'_f15_d3.5_t36k_p2.0_i0.5_d0x.txt'
 
 with open(fileName, 'w') as csvfile:  
