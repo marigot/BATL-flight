@@ -1,0 +1,5 @@
+cd /Users/bewleylab/Documents/GitHub/Data/
+ls
+M=csvread("2020-11-01_16/12/00.173968_sine_amp_20cm.csv");
+
+cd /User/bewleylab/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
