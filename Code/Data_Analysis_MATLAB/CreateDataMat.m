@@ -1,36 +1,47 @@
 function [dataMat] = CreateDataMat(fileDirectory,isNewData)
-% CREATEDATAMAT: Function that parses through all of the test flight data
-% and sorts all the times and powers for each flight into a labelled cell
-% array.
+%   CREATEDATAMAT: Function that parses through all of the test flight data
+%   and sorts all the times and powers for each flight into a labelled cell
+%   array.
 % 
-%   dataMat = CreateDataMat(fileDirectory) runs 
-% 
+%   dataMat = CreateDataMat(fileDirectory,isNewData) creates an organized
+%   cell array that stores all of the raw data from Crazyflie flights. The
+%   fileDirectory input folder must be organized in a specific manner (see
+%   note below for more information). If the data is "new data" (with
+%   asterisk formatting for the timestamps), then the only stored data is
+%   from the "hover" part of the flight, with the takeoff and landing data
+%   eliminated. If the data is "old data" (without asterisk formatting for
+%   timestamps), then the data from approximately 20s-45s during the flight
+%   is stored.
+%
 %   INPUTS
 %       fileDirectory       String that is the file directory with all the data
 %       isNewData           0 or 1. 0 for old data (without asterisks), 1
 %                           for new data (with asterisks)
 %
 %   OUTPUTS
-%       powerMat            Cell array that organizes and stores all of the test data
-%                           [      {}     , {pidt values 1}, {pidt values 2}, ...                          
-%                            {frequency 1},     [DATA]     ,     [DATA]     , ...
-%                            {frequency 2},     [DATA]     ,     [DATA]     , ...
-%                                   .             .                 .
-%                                   .             .                 .             ]      
+%       dataMat             Cell array that organizes and stores all of the test data
+%                           [       {}      , {pidt values 1}, {pidt values 2}, ...                          
+%                            {environment 1},     [DATA]     ,     [DATA]     , ...
+%                            {environment 2},     [DATA]     ,     [DATA]     , ...
+%                                    .              .                 .
+%                                    .              .                 .             ]      
 % 
 %   NOTE: Folders for PIDT must be labelled correctly. Format is "P_I_D_T".
 %   
 %   Data can be accessed by using 
-%       dataMat{a,b}{2,c}{2,d} where  a = environment+1
+%       dataMat{a,b}{c,d}{2,e} where  a = environment+1
 %                                     b = controller+1
-%                                     c = test #
-%                                     d = timestamp(f==1) or power(f==2)
+%                                     c = arduino data (c==1) or crazyflie
+%                                         data (c==2)
+%                                     d = test number + 1
+%                                     e = timestamp(e==1) or various
+%                                         recorded variables (e>2)
 % 
 %   Cornell University
 %   BATL-The Effects of Turbulent Vortex Shedding on the Stability of Quadcopter Drones
 %   Ding, Grace
 %   13FEB2020
-%   Last edited: 11JAN2021
+%   Last edited: 12JAN2021
 
 cd (fileDirectory)      %go to directory with all of the data
 
