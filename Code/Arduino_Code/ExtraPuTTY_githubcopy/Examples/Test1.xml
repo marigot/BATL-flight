@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--Registry file for ExtraPuTTY, Copyright 2010-->
+<ExtraPuTTYTreeCmd>
+	<Position name="ExtraPuTTY" use="1">
+  		<btlr name="bottom" value="639"/>
+  		<btlr name="top" value="81"/>
+  		<btlr name="left" value="105"/>
+  		<btlr name="right" value="341"/>
+	</Position>
+	<Position name="PuTTY" use="1">
+  		<btlr name="bottom" value="501"/>
+  		<btlr name="top" value="81"/>
+  		<btlr name="left" value="341"/>
+  		<btlr name="right" value="1008"/>
+	</Position>
+	<Options Locked="0"/>
+	<Help Type="chm" Path="C:\Program Files\ExtraPuTTY\Bin\ExtraPutty.chm"/>
+	<root name="Test 1. Login" help="ExtraPuTTY_Start.html" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="700" lfItalic="255" lfUnderline="1" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial">
+  		<childroot name="Root" type="1" cmd="root" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Reset Terminal" type="1" cmd="EXT_SYS_CMD_RESET_TERM" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Del one character" type="1" cmd="EXT_SPECHAR_DEL" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Send only CRLF without data" type="1" cmd="EXT_SPECHAR_CR_LF" CRLF="0" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+	</root>
+	<root name="Test 1. QNX" RGB="16711680" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="700" lfItalic="255" lfUnderline="1" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial">
+  		<childroot name="List file" type="1" cmd="ls" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="check process state every 500 ms" type="2" loop="10" auto="0" RGB="128" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="700" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial">
+      			<childscenarii name="Process state" cmd="pidin" tempo="500" mode="execute" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		</childroot>
+	</root>
+</ExtraPuTTYTreeCmd>

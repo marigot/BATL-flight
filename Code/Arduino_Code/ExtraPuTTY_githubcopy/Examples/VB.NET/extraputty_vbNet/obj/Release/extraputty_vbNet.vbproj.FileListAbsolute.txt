@@ -1,0 +1,61 @@
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Release\test_extraputty.exe.config
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.exe
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.xml
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.pdb
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\ResolveAssemblyReference.cache
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\WindowsApplication1.Form1.resources
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\WindowsApplication1.Resources.resources
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\extraputty_vbNet.vbproj.GenerateResource.Cache
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\bin\Release\extraputty_vbNet.exe.config
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\bin\Release\extraputty_vbNet.exe
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\bin\Release\extraputty_vbNet.pdb
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\bin\Release\extraputty_vbNet.xml
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\extraputty_vbNet.exe
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\extraputty_vbNet.xml
+D:\clef_usb\test_extraputty\test_extraputty\extraputty_vbNet\obj\Release\extraputty_vbNet.pdb
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\bin\Release\extraputty_vbNet.exe.config
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\extraputty_vbNet.exe
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\extraputty_vbNet.xml
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\extraputty_vbNet.pdb
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\bin\Release\extraputty_vbNet.exe
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\bin\Release\extraputty_vbNet.pdb
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\bin\Release\extraputty_vbNet.xml
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\ResolveAssemblyReference.cache
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\WindowsApplication1.Form1.resources
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\WindowsApplication1.Resources.resources
+D:\clef_usb\test_extraputty\extraputty_vbNet\extraputty_vbNet\obj\Release\extraputty_vbNet.vbproj.GenerateResource.Cache
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.exe.config
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\extraputty_vbNet.pdb
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.pdb
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\ResolveAssemblyReference.cache
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\WindowsApplication1.Form1.resources
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\WindowsApplication1.Resources.resources
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\bin\Release\extraputty_vbNet.exe.config
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\bin\Release\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\bin\Release\extraputty_vbNet.pdb
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\bin\Release\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\ResolveAssemblyReference.cache
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\WindowsApplication1.Form1.resources
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\WindowsApplication1.Resources.resources
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\extraputty_vbNet.vbproj.GenerateResource.Cache
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Release\extraputty_vbNet.pdb
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.exe.config
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\extraputty_vbNet.exe
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\extraputty_vbNet.xml
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\extraputty_vbNet.pdb
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.exe
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.pdb
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\bin\Release\extraputty_vbNet.xml
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\ResolveAssemblyReference.cache
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\WindowsApplication1.Form1.resources
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\WindowsApplication1.Resources.resources
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\GenerateResource.read.1.tlog
+F:\WorkingDirectory\ExtraPuTTY\VB.NET\extraputty_vbNet\obj\Release\GenerateResource.write.1.tlog
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\GenerateResource.read.1.tlog
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Release\GenerateResource.write.1.tlog

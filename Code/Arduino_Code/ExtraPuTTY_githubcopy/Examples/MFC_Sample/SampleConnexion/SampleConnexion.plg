@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SampleConnexion - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x40c /fo"Release/SampleConnexion.res" /d "NDEBUG" /d "_AFXDLL" "D:\WorkingDirectory\ExtraPuTTY\MFC_Sample\SampleConnexion\SampleConnexion.rc"" 
+Creating temporary file "C:\DOCUME~1\sbv\LOCALS~1\Temp\RSP60A.tmp" with contents
+[
+/nologo /Gz /Zp16 /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/SampleConnexion.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\WorkingDirectory\ExtraPuTTY\MFC_Sample\SampleConnexion\SampleConnexion.cpp"
+"D:\WorkingDirectory\ExtraPuTTY\MFC_Sample\SampleConnexion\SampleConnexionDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\sbv\LOCALS~1\Temp\RSP60A.tmp" 
+Creating temporary file "C:\DOCUME~1\sbv\LOCALS~1\Temp\RSP60B.tmp" with contents
+[
+/nologo /Gz /Zp16 /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/SampleConnexion.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\WorkingDirectory\ExtraPuTTY\MFC_Sample\SampleConnexion\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\sbv\LOCALS~1\Temp\RSP60B.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/SampleConnexion.pdb" /machine:I386 /out:"Release/SampleConnexion.exe"  .\Release\SampleConnexion.obj .\Release\SampleConnexionDlg.obj .\Release\StdAfx.obj .\Release\SampleConnexion.res "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+SampleConnexion.cpp
+SampleConnexionDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SampleConnexion.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

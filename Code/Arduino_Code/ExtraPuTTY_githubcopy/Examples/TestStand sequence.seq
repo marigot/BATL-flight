@@ -1,0 +1,1314 @@
+[__Header__]
+ProductName = "TestStand"
+ProductVersion = 3.0.0.12373
+CompatibleProdVersion = 3.0.0.0
+Version = 172
+Type = "SequenceFile"
+Path = "C:\\Program Files\\ExtraPuTTY\\Bin\\Examples\\TestStand sequence.seq"
+ProductVersionString = "3.0 (3.0.0.12373)"
+CharEncoding = "SBCS"
+
+[DEF, %OBJROOT]
+SF = SequenceFileData
+Path = PathValue
+StepTypeSubstepsArray = Objs
+Expression = ExprValue
+StepTypeMenu = Obj
+TEInf = Obj
+FlexCStepAdditions = FCModule
+FCParameter = FCParameter
+Error = Obj
+CommonResults = Obj
+TL_Init = StepType
+TL_SendCmd = StepType
+TL_Close = StepType
+
+[DEF, SF]
+Seq = Objs
+FileGlobalDefaults = Obj
+ModelFile = "TYPE, Path"
+LoadOpt = Str
+UnloadOpt = Str
+Version = Str
+BatchSync = Num
+SFGlobalsScope = Num
+Type = Num
+ModelOption = Num
+%NAME = "Data"
+
+[SF]
+%HI: Seq = [0]
+%FLG: Seq = 4194304
+%FLG: FileGlobalDefaults = 4194304
+%FLG: ModelFile = 4194312
+LoadOpt = "UseStepLoadOpt"
+%FLG: LoadOpt = 4194312
+UnloadOpt = "UseStepUnloadOpt"
+%FLG: UnloadOpt = 4194312
+Version = "0.0.0.0"
+%FLG: Version = 4194312
+BatchSync = 1
+%FLG: BatchSync = 4194312
+%FLG: SFGlobalsScope = 4194312
+%FLG: Type = 4194312
+%FLG: ModelOption = 4194312
+
+[DEF, SF.Seq]
+%[0] = Sequence
+
+[DEF, SF.Seq[0]]
+Parameters = Obj
+Locals = Obj
+Main = Objs
+Setup = Objs
+Cleanup = Objs
+GotoCleanupOnFail = Bool
+RecordResults = Bool
+RTS = Obj
+%NAME = "MainSequence"
+
+[SF.Seq[0]]
+%FLG: Parameters = 4456448
+%FLG: Locals = 4194304
+%HI: Main = [3]
+%FLG: Main = 4194304
+%FLG: Setup = 4194304
+%FLG: Cleanup = 4194304
+%FLG: GotoCleanupOnFail = 4194312
+RecordResults = True
+%FLG: RecordResults = 4194312
+%FLG: RTS = 4456456
+
+[DEF, SF.Seq[0].Locals]
+ResultList = Objs
+ConnexionId = Num
+
+[DEF, SF.Seq[0].Locals.ResultList]
+%EPTYPE = TEResult
+
+[DEF, SF.Seq[0].Main]
+%[0] = Step
+%TYPE: %[0] = "TL_Init"
+%[1] = Step
+%TYPE: %[1] = "TL_SendCmd"
+%[2] = Step
+%TYPE: %[2] = "TL_SendCmd"
+%[3] = Step
+%TYPE: %[3] = "TL_Close"
+
+[SF.Seq[0].Main[0].TS]
+Id = "ID#:GT5YKuow+EyFAJNm5wxFeD"
+
+[DEF, SF.Seq[0].Main[0].TS]
+SData = "TYPE, FlexCStepAdditions"
+
+[SF.Seq[0].Main[0].TS.SData.Call]
+LibPath = "C:\\Program Files\\ExtraPuTTY\\TestStand\\ExtraPuTTY.dll"
+Func = "Connexion_F"
+%HI: Parms = [17]
+
+[DEF, SF.Seq[0].Main[0].TS.SData.Call.Parms]
+%[0] = "TYPE, FCParameter"
+%[1] = "TYPE, FCParameter"
+%[2] = "TYPE, FCParameter"
+%[3] = "TYPE, FCParameter"
+%[4] = "TYPE, FCParameter"
+%[5] = "TYPE, FCParameter"
+%[6] = "TYPE, FCParameter"
+%[7] = "TYPE, FCParameter"
+%[8] = "TYPE, FCParameter"
+%[9] = "TYPE, FCParameter"
+%[10] = "TYPE, FCParameter"
+%[11] = "TYPE, FCParameter"
+%[12] = "TYPE, FCParameter"
+%[13] = "TYPE, FCParameter"
+%[14] = "TYPE, FCParameter"
+%[15] = "TYPE, FCParameter"
+%[16] = "TYPE, FCParameter"
+%[17] = "TYPE, FCParameter"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+Type = 3
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[1]]
+Name = "TargetName"
+Type = 2
+ArgVal = "\"tommysworldbbs.kicks-ass.net\""
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[2]]
+Name = "ConnectionId"
+NumType = 5
+NumPass = 1
+ArgVal = "Locals.ConnexionId"
+Flags = 16
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[3]]
+Name = "Login"
+Type = 2
+ArgVal = "\"Guest\""
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[4]]
+Name = "Password"
+Type = 2
+ArgVal = "\"\""
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[5]]
+Name = "ShowPuTTY"
+NumType = 0
+ArgVal = "TRUE"
+Flags = 4
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[6]]
+Name = "Protocol"
+ArgVal = "0"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[7]]
+Name = "PortNumber"
+NumType = 5
+ArgVal = "0"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[8]]
+Name = "GenerateReport"
+ArgVal = "0"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[9]]
+Name = "CRLF"
+ArgVal = "0"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[10]]
+Name = "NewCRLF"
+Type = 2
+ArgVal = "\"\""
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[11]]
+Name = "ReportFileData"
+Type = 2
+ArgVal = "ThisContext.RunState.SequenceFile.Path"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[12]]
+Name = "SpecSettings"
+NumType = 5
+ArgVal = "0"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[13]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.PassFail"
+Flags = 20
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[14]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[15]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.Error.Occurred"
+Flags = 20
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[16]]
+NumPass = 1
+ArgVal = "Step.Result.Error.Code"
+Flags = 16
+
+[SF.Seq[0].Main[0].TS.SData.Call.Parms[17]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.Error.Msg"
+
+[DEF, SF.Seq[0].Main[0]]
+%NAME = "Initialize Connection"
+
+[SF.Seq[0].Main[1].TS]
+Id = "ID#:5bENlRYVxkCG/HiVo6C6qC"
+
+[DEF, SF.Seq[0].Main[1].TS]
+SData = "TYPE, FlexCStepAdditions"
+
+[SF.Seq[0].Main[1].TS.SData.Call]
+LibPath = "C:\\Program Files\\ExtraPuTTY\\TestStand\\ExtraPuTTY.dll"
+Func = "SendRcvData_F"
+%HI: Parms = [13]
+
+[DEF, SF.Seq[0].Main[1].TS.SData.Call.Parms]
+%[0] = "TYPE, FCParameter"
+%[1] = "TYPE, FCParameter"
+%[2] = "TYPE, FCParameter"
+%[3] = "TYPE, FCParameter"
+%[4] = "TYPE, FCParameter"
+%[5] = "TYPE, FCParameter"
+%[6] = "TYPE, FCParameter"
+%[7] = "TYPE, FCParameter"
+%[8] = "TYPE, FCParameter"
+%[9] = "TYPE, FCParameter"
+%[10] = "TYPE, FCParameter"
+%[11] = "TYPE, FCParameter"
+%[12] = "TYPE, FCParameter"
+%[13] = "TYPE, FCParameter"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+Type = 3
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[1]]
+Name = "ConnectionId"
+NumType = 5
+ArgVal = "Locals.ConnexionId"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[2]]
+Name = "Command"
+Type = 2
+ArgVal = "\"Yes\""
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[3]]
+Name = "Title"
+Type = 2
+ArgVal = "\"\""
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[4]]
+Name = "Comments"
+Type = 2
+ArgVal = "\"\""
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[5]]
+Name = "TimeCapture"
+ArgVal = "0"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[6]]
+Name = "DataRcv"
+Type = 2
+StrPass = 2
+StrSize = "1000000"
+ArgVal = "Step.Result.DataReceived"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[7]]
+Name = "MaxSizeofData"
+ArgVal = "1000000"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[8]]
+Name = "Settings"
+NumType = 5
+ArgVal = "0"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[9]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.PassFail"
+Flags = 20
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[10]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[11]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.Error.Occurred"
+Flags = 20
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[12]]
+NumPass = 1
+ArgVal = "Step.Result.Error.Code"
+Flags = 16
+
+[SF.Seq[0].Main[1].TS.SData.Call.Parms[13]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.Error.Msg"
+
+[DEF, SF.Seq[0].Main[1]]
+%NAME = "Send-Received data"
+
+[SF.Seq[0].Main[2].TS]
+Id = "ID#:zOQb5uVBb0KMlvjQgHqn3D"
+
+[DEF, SF.Seq[0].Main[2].TS]
+SData = "TYPE, FlexCStepAdditions"
+
+[SF.Seq[0].Main[2].TS.SData.Call]
+LibPath = "C:\\Program Files\\ExtraPuTTY\\TestStand\\ExtraPuTTY.dll"
+Func = "SendRcvData_F"
+%HI: Parms = [13]
+
+[DEF, SF.Seq[0].Main[2].TS.SData.Call.Parms]
+%[0] = "TYPE, FCParameter"
+%[1] = "TYPE, FCParameter"
+%[2] = "TYPE, FCParameter"
+%[3] = "TYPE, FCParameter"
+%[4] = "TYPE, FCParameter"
+%[5] = "TYPE, FCParameter"
+%[6] = "TYPE, FCParameter"
+%[7] = "TYPE, FCParameter"
+%[8] = "TYPE, FCParameter"
+%[9] = "TYPE, FCParameter"
+%[10] = "TYPE, FCParameter"
+%[11] = "TYPE, FCParameter"
+%[12] = "TYPE, FCParameter"
+%[13] = "TYPE, FCParameter"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[0]]
+Name = "Return Value"
+Type = 3
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[1]]
+Name = "ConnectionId"
+NumType = 5
+ArgVal = "Locals.ConnexionId"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[2]]
+Name = "Command"
+Type = 2
+ArgVal = "\"Test\""
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[3]]
+Name = "Title"
+Type = 2
+ArgVal = "\"\""
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[4]]
+Name = "Comments"
+Type = 2
+ArgVal = "\"\""
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[5]]
+Name = "TimeCapture"
+ArgVal = "0"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[6]]
+Name = "DataRcv"
+Type = 2
+StrPass = 2
+StrSize = "1000000"
+ArgVal = "Step.Result.DataReceived"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[7]]
+Name = "MaxSizeofData"
+ArgVal = "1000000"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[8]]
+Name = "Settings"
+NumType = 5
+ArgVal = "0"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[9]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.PassFail"
+Flags = 20
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[10]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[11]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.Error.Occurred"
+Flags = 20
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[12]]
+NumPass = 1
+ArgVal = "Step.Result.Error.Code"
+Flags = 16
+
+[SF.Seq[0].Main[2].TS.SData.Call.Parms[13]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.Error.Msg"
+
+[DEF, SF.Seq[0].Main[2]]
+%NAME = "Send-Received data"
+
+[SF.Seq[0].Main[3].TS]
+Id = "ID#:9bikhyvFuk+ChCKxAxlpCC"
+
+[DEF, SF.Seq[0].Main[3]]
+%NAME = "Close Connection"
+
+[DEF, SF.Seq[0].RTS]
+Type = Num
+OptimizeNonReentrantCalls = Bool
+EPNameExpr = Str
+EPEnabledExpr = Str
+EPMenuHint = Str
+EPIgnoreClient = Bool
+EPInitiallyHidden = Bool
+EPCheckToSaveTitledFile = Bool
+ShowEPAlways = Bool
+ShowEPForFileWin = Bool
+ShowEPForExeWin = Bool
+ShowEPForEditorOnly = Bool
+AllowIntExeOfEP = Bool
+CopyStepsOnOverriding = Bool
+Priority = Num
+
+[SF.Seq[0].RTS]
+%FLG: Type = 4194304
+OptimizeNonReentrantCalls = True
+%FLG: OptimizeNonReentrantCalls = 4194304
+EPNameExpr = "\"Unnamed Entry Point\""
+%FLG: EPNameExpr = 4194304
+EPEnabledExpr = "True"
+%FLG: EPEnabledExpr = 4194304
+%FLG: EPMenuHint = 4194304
+%FLG: EPIgnoreClient = 4194304
+%FLG: EPInitiallyHidden = 4194304
+EPCheckToSaveTitledFile = True
+%FLG: EPCheckToSaveTitledFile = 4194304
+%FLG: ShowEPAlways = 4194304
+ShowEPForFileWin = True
+%FLG: ShowEPForFileWin = 4194304
+%FLG: ShowEPForExeWin = 4194304
+%FLG: ShowEPForEditorOnly = 4194304
+%FLG: AllowIntExeOfEP = 4194304
+CopyStepsOnOverriding = True
+%FLG: CopyStepsOnOverriding = 4194304
+Priority = 2953567917
+%FLG: Priority = 4194304
+
+[%TYPES]
+Path = "Path"
+StepTypeSubstepsArray = "StepTypeSubstepsArray"
+Expression = "Expression"
+StepTypeMenu = "StepTypeMenu"
+TEInf = "TEInf"
+FlexCStepAdditions = "FlexCStepAdditions"
+FCParameter = "FCParameter"
+Error = "Error"
+CommonResults = "CommonResults"
+TL_Init = "TL_Init"
+TL_SendCmd = "TL_SendCmd"
+TL_Close = "TL_Close"
+
+[DEF, Path]
+%LOCATION = "StdTypes"
+%ROOT_TYPE = True
+
+[Path]
+%TIMESTAMP = 1060111435
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194304
+%TYPE_FLG = 33554436
+
+[DEF, StepTypeSubstepsArray]
+%LOCATION = "StdTypes"
+%ROOT_TYPE = True
+
+[StepTypeSubstepsArray]
+%TIMESTAMP = 1059680189
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194328
+%TYPE_FLG = 33554436
+%INSTFLG = 4718616
+%INSTOVRD = 4849688
+
+[DEF, Expression]
+%LOCATION = "StdTypes"
+%ROOT_TYPE = True
+
+[Expression]
+%TIMESTAMP = 1060111435
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194304
+%TYPE_FLG = 33554436
+
+[DEF, StepTypeMenu]
+%LOCATION = "StdTypes"
+CanBeSubstepType = Bool
+CanOnlyBeSubstepType = Bool
+Category = Str
+ItemName = "TYPE, Expression"
+SingularItemName = Str
+SeparatorBeforeCategory = Bool
+SeparatorBeforeItemName = Bool
+Group = Str
+%ROOT_TYPE = True
+
+[StepTypeMenu]
+Category = "\"\""
+ItemName = "\"\""
+SingularItemName = "\"\""
+%TIMESTAMP = 1059680189
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194328
+%TYPE_FLG = 33554436
+%INSTFLG = 4718616
+%INSTOVRD = 4718616
+
+[DEF, TEInf]
+%LOCATION = "StdTypes"
+Id = Str
+Icon = Str
+SData = Obj
+%FLG: SData = 2097152
+PreCond = "TYPE, Expression"
+LoadOpt = Str
+UnloadOpt = Str
+Mode = Str
+WindowActivation = Str
+NoResult = Bool
+StepFCSeqF = Bool
+IgnoreRTE = Bool
+UseMutex = Bool
+MutexNameOrRef = "TYPE, Expression"
+BatchSyncOpt = Num
+SwitchEnabled = Bool
+VirtualDeviceName = "TYPE, Expression"
+SwitchOperation = Num
+RouteGroupConnect = "TYPE, Expression"
+RouteGroupDisconnect = "TYPE, Expression"
+MulticonnectMode = Num
+OperationOrder = Num
+ConnectionLifetime = Num
+WaitForDebounce = Bool
+PassAct = Str
+FailAct = Str
+PassActTarget = "TYPE, Expression"
+FailActTarget = "TYPE, Expression"
+CustExpr = "TYPE, Expression"
+CustTrueAct = Str
+CustFalseAct = Str
+CustTrueActTarget = "TYPE, Expression"
+CustFalseActTarget = "TYPE, Expression"
+LoopType = Str
+LoopWhile = "TYPE, Expression"
+LoopStatus = "TYPE, Expression"
+LoopIncrement = "TYPE, Expression"
+LoopInitialize = "TYPE, Expression"
+LoopOpt = Num
+PreExpr = "TYPE, Expression"
+PostExpr = "TYPE, Expression"
+StatusExpr = "TYPE, Expression"
+CanSpecifyModule = Bool
+CanEditCode = Bool
+CanEditModulePrototype = Bool
+PrecondIntExe = Num
+%ROOT_TYPE = True
+
+[TEInf]
+%INSTFLG: Id = 1
+%INSTOVRD: Id = 5046297
+%INSTOVRD: Icon = 5046296
+%INSTFLG: SData = 2097152
+%INSTOVRD: SData = 7143448
+%INSTOVRD: PreCond = 5046296
+LoadOpt = "PreloadWhenExecuted"
+%INSTOVRD: LoadOpt = 5046296
+UnloadOpt = "UnloadWithFile"
+%INSTOVRD: UnloadOpt = 5046296
+Mode = "Normal"
+%INSTOVRD: Mode = 5046296
+WindowActivation = "None"
+%INSTOVRD: WindowActivation = 5046296
+%INSTOVRD: NoResult = 5046296
+StepFCSeqF = True
+%INSTOVRD: StepFCSeqF = 5046296
+%INSTOVRD: IgnoreRTE = 5046296
+%INSTOVRD: UseMutex = 5046296
+%INSTOVRD: MutexNameOrRef = 5046296
+%INSTOVRD: BatchSyncOpt = 5046296
+%INSTOVRD: SwitchEnabled = 5046296
+%INSTOVRD: VirtualDeviceName = 5046296
+SwitchOperation = 1
+%INSTOVRD: SwitchOperation = 5046296
+%INSTOVRD: RouteGroupConnect = 5046296
+%INSTOVRD: RouteGroupDisconnect = 5046296
+MulticonnectMode = 1
+%INSTOVRD: MulticonnectMode = 5046296
+OperationOrder = 2
+%INSTOVRD: OperationOrder = 5046296
+ConnectionLifetime = 4
+%INSTOVRD: ConnectionLifetime = 5046296
+WaitForDebounce = True
+%INSTOVRD: WaitForDebounce = 5046296
+PassAct = "Next"
+%INSTOVRD: PassAct = 5046296
+FailAct = "Next"
+%INSTOVRD: FailAct = 5046296
+%INSTOVRD: PassActTarget = 5046296
+%INSTOVRD: FailActTarget = 5046296
+%INSTOVRD: CustExpr = 5046296
+CustTrueAct = "Next"
+%INSTOVRD: CustTrueAct = 5046296
+CustFalseAct = "Next"
+%INSTOVRD: CustFalseAct = 5046296
+%INSTOVRD: CustTrueActTarget = 5046296
+%INSTOVRD: CustFalseActTarget = 5046296
+LoopType = "NoLooping"
+%INSTOVRD: LoopType = 5046296
+%INSTOVRD: LoopWhile = 5046296
+%INSTOVRD: LoopStatus = 5046296
+LoopIncrement = "RunState.LoopIndex += 1"
+%INSTOVRD: LoopIncrement = 5046296
+LoopInitialize = "RunState.LoopIndex = 0"
+%INSTOVRD: LoopInitialize = 5046296
+%INSTOVRD: LoopOpt = 5046296
+%INSTOVRD: PreExpr = 5046296
+%INSTOVRD: PostExpr = 5046296
+%INSTOVRD: StatusExpr = 5046296
+CanSpecifyModule = True
+%INSTOVRD: CanSpecifyModule = 5046296
+CanEditCode = True
+%INSTOVRD: CanEditCode = 5046296
+CanEditModulePrototype = True
+%INSTOVRD: CanEditModulePrototype = 5046296
+%INSTOVRD: PrecondIntExe = 5046296
+%TIMESTAMP = 1059680189
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194328
+%TYPE_FLG = 33554436
+%INSTFLG = 4456472
+%INSTOVRD = 4456472
+
+[DEF, FlexCStepAdditions]
+%LOCATION = "StdTypes"
+Call = ExternalCall
+ModuleSrcPath = "TYPE, Path"
+ModulePrjPath = "TYPE, Path"
+ModuleWorkspacePath = "TYPE, Path"
+ModuleCreateSrcType = Num
+%ROOT_TYPE = True
+
+[DEF, FlexCStepAdditions.Call]
+LibPath = "TYPE, Path"
+Func = Str
+Parms = Objs
+
+[DEF, FlexCStepAdditions.Call.Parms]
+%EPTYPE = "TYPE, FCParameter"
+%FLG: %EPTYPE = 131072
+%[0] = "TYPE, FCParameter"
+
+[FlexCStepAdditions.Call]
+%HI: Parms = [0]
+
+[FlexCStepAdditions.Call.Parms[0]]
+Name = "Return Value"
+Type = 3
+
+[FlexCStepAdditions]
+%TIMESTAMP = 1059681025
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 24
+%TYPE_FLG = 33554436
+
+[DEF, FCParameter]
+%LOCATION = "StdTypes"
+Name = Str
+Type = Num
+NumType = Num
+ObjType = Num
+StructType = Str
+NumPass = Num
+StrPass = Num
+ElemPass = Num
+ArrayDimensionsSize = Objs
+StrSize = "TYPE, Expression"
+ResultAct = Num
+ArgVal = "TYPE, Expression"
+ArgDisplayVal = "TYPE, Expression"
+Flags = Num
+ArgValImag = "TYPE, Expression"
+%ROOT_TYPE = True
+
+[FCParameter]
+Name = "_notNamed"
+NumType = 4
+StrSize = "1024"
+%TIMESTAMP = 1059681025
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 24
+%TYPE_FLG = 33554436
+
+[DEF, FCParameter.ArrayDimensionsSize]
+%EPTYPE = "TYPE, Expression"
+%FLG: %EPTYPE = 131072
+
+[FCParameter.ArrayDimensionsSize]
+%EPTYPE = "1024"
+
+[DEF, Error]
+%LOCATION = "StdTypes"
+Code = Num
+Msg = Str
+Occurred = Bool
+%ROOT_TYPE = True
+
+[Error]
+%FLG: Code = 4194304
+%INSTFLG: Code = 4194304
+%FLG: Msg = 4194304
+%INSTFLG: Msg = 4194304
+%FLG: Occurred = 4194304
+%INSTFLG: Occurred = 4194304
+%TIMESTAMP = 1063730206
+%VERSION = "3.0.0.12374"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194304
+%TYPE_FLG = 33554432
+%EXTDATA = True
+
+[Error.Code]
+%EXTDATA = True
+
+[EXTDATA, Error.Code, STRUCT]
+DataVersion = 1
+Type = 6
+
+[EXTDATA, Error.Code, CLUST]
+DataVersion = 1
+ClusterMemberLabelName = "code"
+
+[EXTDATA, Error.Code, DNSTRUCT]
+DataVersion = 1
+StructMemberName = "code"
+
+[Error.Msg]
+%EXTDATA = True
+
+[EXTDATA, Error.Msg, STRUCT]
+DataVersion = 1
+Type = 2
+StringBufferSize = 1024
+StringStorage = 1
+
+[EXTDATA, Error.Msg, CLUST]
+DataVersion = 1
+ClusterMemberLabelName = "source"
+
+[EXTDATA, Error.Msg, DNSTRUCT]
+DataVersion = 1
+StructMemberName = "msg"
+
+[Error.Occurred]
+%EXTDATA = True
+
+[EXTDATA, Error.Occurred, STRUCT]
+DataVersion = 1
+Type = 6
+
+[EXTDATA, Error.Occurred, CLUST]
+DataVersion = 1
+ClusterMemberLabelName = "status"
+
+[EXTDATA, Error.Occurred, DNSTRUCT]
+DataVersion = 1
+StructMemberName = "occurred"
+
+[EXTDATA, Error, STRUCT]
+AllowStructPassing = True
+DataVersion = 1
+PackingOption = 8
+Type = 0
+
+[EXTDATA, Error, CLUST]
+AllowClusterPassing = True
+DataVersion = 1
+ClusterMemberLabelName = ""
+
+[EXTDATA, Error, DNSTRUCT]
+AllowStructPassing = True
+DataVersion = 1
+StructMemberName = ""
+
+[DEF, CommonResults]
+%LOCATION = "StdTypes"
+%ROOT_TYPE = True
+
+[CommonResults]
+%TIMESTAMP = 1059680189
+%VERSION = "3.0.0.12373"
+%TYPELASTMOD = "3.0.0.12373"
+%MINPRODVER = "3.0.0.0"
+%FLG = 4194304
+%TYPE_FLG = 33554432
+%INSTFLG = 4194304
+
+[DEF, TL_Init]
+%LOCATION = "StepTypes"
+Substeps = "TYPE, StepTypeSubstepsArray"
+DescriptionFormat = "TYPE, Expression"
+%FLG: DescriptionFormat = 524288
+DefaultNameFormat = "TYPE, Expression"
+%FLG: DefaultNameFormat = 524288
+Menu = "TYPE, StepTypeMenu"
+TS = "TYPE, TEInf"
+Result = Obj
+InBuf = Str
+DataSource = Str
+CodeTemplates = Str
+%FLG: CodeTemplates = 524288
+%ROOT_TYPE = True
+
+[TL_Init]
+DescriptionFormat Line0001 = "\"Initialize  connection with \" + Step.TS.SData.Call.Parms[1].ArgVal + \" target, Login : \" + Step.TS.SData.Call.Parms"
+DescriptionFormat Line0002 = "[3].ArgVal + \" Password : \" + Step.TS.SData.Call.Parms[4].ArgVal "
+%FLG: DescriptionFormat = 4194328
+%INSTFLG: DescriptionFormat = 4718616
+%INSTOVRD: DescriptionFormat = 4718616
+DefaultNameFormat = "\"Initialize Connection\""
+%FLG: DefaultNameFormat = 4194328
+%INSTFLG: DefaultNameFormat = 4718616
+%INSTOVRD: DefaultNameFormat = 4718616
+%INSTFLG: TS = 4194304
+%FLG: Result = 4194304
+%INSTFLG: Result = 4194304
+DataSource = "Step.Result.PassFail"
+CodeTemplates = "PassFail_Template|PassFailMFC_Template"
+%FLG: CodeTemplates = 24
+%COMMENT = "\n  "
+%TIMESTAMP = 1296121029
+%VERSION = "0.0.2.5"
+%TYPELASTMOD = "3.0.0.12373"
+%TYPE_FLG = 3
+
+[TL_Init.Menu]
+ItemName = "\"Initialize Connection\""
+Group = "Session Configuration"
+
+[TL_Init.TS]
+Icon = "ExtraPuTTY\\PUTTY.ico"
+ConnectionLifetime = 0
+StatusExpr Line0001 = "Step.DataSource != \"Step.Result.PassFail\" ? Step.Result.PassFail = Evaluate(Step.DataSource) : False, Step.Result.Pass"
+StatusExpr Line0002 = "Fail ? \"Passed\" : \"Failed\" "
+%INSTFLG: StatusExpr = 1
+%INSTOVRD: StatusExpr = 5046297
+
+[DEF, TL_Init.TS]
+SData = "TYPE, FlexCStepAdditions"
+%FLG: SData = 2097152
+
+[TL_Init.TS.SData.Call]
+LibPath = "C:\\Program Files\\ExtraPuTTY\\TestStand\\ExtraPuTTY.dll"
+Func = "Connexion_F"
+%HI: Parms = [17]
+
+[DEF, TL_Init.TS.SData.Call.Parms]
+%[0] = "TYPE, FCParameter"
+%[1] = "TYPE, FCParameter"
+%[2] = "TYPE, FCParameter"
+%[3] = "TYPE, FCParameter"
+%[4] = "TYPE, FCParameter"
+%[5] = "TYPE, FCParameter"
+%[6] = "TYPE, FCParameter"
+%[7] = "TYPE, FCParameter"
+%[8] = "TYPE, FCParameter"
+%[9] = "TYPE, FCParameter"
+%[10] = "TYPE, FCParameter"
+%[11] = "TYPE, FCParameter"
+%[12] = "TYPE, FCParameter"
+%[13] = "TYPE, FCParameter"
+%[14] = "TYPE, FCParameter"
+%[15] = "TYPE, FCParameter"
+%[16] = "TYPE, FCParameter"
+%[17] = "TYPE, FCParameter"
+
+[TL_Init.TS.SData.Call.Parms[0]]
+Name = "Return Value"
+Type = 3
+
+[TL_Init.TS.SData.Call.Parms[1]]
+Name = "TargetName"
+Type = 2
+ArgVal = "\"\""
+
+[TL_Init.TS.SData.Call.Parms[2]]
+Name = "ConnectionId"
+NumType = 5
+NumPass = 1
+Flags = 16
+
+[TL_Init.TS.SData.Call.Parms[3]]
+Name = "Login"
+Type = 2
+ArgVal = "\"\""
+
+[TL_Init.TS.SData.Call.Parms[4]]
+Name = "Password"
+Type = 2
+ArgVal = "\"\""
+
+[TL_Init.TS.SData.Call.Parms[5]]
+Name = "ShowPuTTY"
+NumType = 0
+ArgVal = "FALSE"
+Flags = 4
+
+[TL_Init.TS.SData.Call.Parms[6]]
+Name = "Protocol"
+ArgVal = "0"
+
+[TL_Init.TS.SData.Call.Parms[7]]
+Name = "PortNumber"
+NumType = 5
+ArgVal = "0"
+
+[TL_Init.TS.SData.Call.Parms[8]]
+Name = "GenerateReport"
+ArgVal = "0"
+
+[TL_Init.TS.SData.Call.Parms[9]]
+Name = "CRLF"
+ArgVal = "0"
+
+[TL_Init.TS.SData.Call.Parms[10]]
+Name = "NewCRLF"
+Type = 2
+ArgVal = "\"\""
+
+[TL_Init.TS.SData.Call.Parms[11]]
+Name = "ReportFileData"
+Type = 2
+ArgVal = "ThisContext.RunState.SequenceFile.Path"
+
+[TL_Init.TS.SData.Call.Parms[12]]
+Name = "SpecSettings"
+NumType = 5
+ArgVal = "0"
+
+[TL_Init.TS.SData.Call.Parms[13]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.PassFail"
+Flags = 20
+
+[TL_Init.TS.SData.Call.Parms[14]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+
+[TL_Init.TS.SData.Call.Parms[15]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.Error.Occurred"
+Flags = 20
+
+[TL_Init.TS.SData.Call.Parms[16]]
+NumPass = 1
+ArgVal = "Step.Result.Error.Code"
+Flags = 16
+
+[TL_Init.TS.SData.Call.Parms[17]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.Error.Msg"
+
+[DEF, TL_Init.Result]
+Error = "TYPE, Error"
+Status = Str
+PassFail = Bool
+ReportText = Str
+Common = "TYPE, CommonResults"
+
+[TL_Init.Result]
+%FLG: Error = 4194304
+%INSTFLG: Error = 4194304
+%INSTOVRD: Error = 4194304
+%FLG: Status = 4194304
+%INSTFLG: Status = 4194304
+PassFail = True
+%INSTOVRD: Common = 4194304
+
+[DEF, TL_SendCmd]
+%LOCATION = "StepTypes"
+Substeps = "TYPE, StepTypeSubstepsArray"
+DescriptionFormat = "TYPE, Expression"
+%FLG: DescriptionFormat = 524288
+DefaultNameFormat = "TYPE, Expression"
+%FLG: DefaultNameFormat = 524288
+Menu = "TYPE, StepTypeMenu"
+TS = "TYPE, TEInf"
+Result = Obj
+InBuf = Str
+DataSource = Str
+CodeTemplates = Str
+%FLG: CodeTemplates = 524288
+%ROOT_TYPE = True
+
+[TL_SendCmd]
+DescriptionFormat Line0001 = "\"Send command : \" + Step.TS.SData.Call.Parms[2].ArgVal  + \" on target : \" + Step.TS.SData.Call.Parms[1].ArgVal + \" "
+DescriptionFormat Line0002 = "with TimeCapture : \" + Step.TS.SData.Call.Parms[5].ArgVal + \" ms\""
+%FLG: DescriptionFormat = 4194328
+%INSTFLG: DescriptionFormat = 4718616
+%INSTOVRD: DescriptionFormat = 4718616
+DefaultNameFormat = "\"Send-Received data\""
+%FLG: DefaultNameFormat = 4194328
+%INSTFLG: DefaultNameFormat = 4718616
+%INSTOVRD: DefaultNameFormat = 4718616
+%INSTFLG: TS = 4194304
+%FLG: Result = 4194304
+%INSTFLG: Result = 4194304
+DataSource = "Step.Result.PassFail"
+CodeTemplates = "PassFail_Template|PassFailMFC_Template"
+%FLG: CodeTemplates = 24
+%COMMENT = "\n  "
+%TIMESTAMP = 1281686657
+%VERSION = "0.0.2.6"
+%TYPELASTMOD = "3.0.0.12373"
+%TYPE_FLG = 2
+
+[TL_SendCmd.Menu]
+ItemName = "\"Send-Received data\""
+Group = "Session Management"
+
+[TL_SendCmd.TS]
+Icon = "ExtraPuTTY\\eSend.ico"
+ConnectionLifetime = 0
+StatusExpr Line0001 = "Step.DataSource != \"Step.Result.PassFail\" ? Step.Result.PassFail = Evaluate(Step.DataSource) : False, Step.Result.Pass"
+StatusExpr Line0002 = "Fail ? \"Passed\" : \"Failed\" "
+%INSTFLG: StatusExpr = 1
+%INSTOVRD: StatusExpr = 5046297
+
+[DEF, TL_SendCmd.TS]
+SData = "TYPE, FlexCStepAdditions"
+%FLG: SData = 2097152
+
+[TL_SendCmd.TS.SData.Call]
+LibPath = "C:\\Program Files\\ExtraPuTTY\\TestStand\\ExtraPuTTY.dll"
+Func = "SendRcvData_F"
+%HI: Parms = [13]
+
+[DEF, TL_SendCmd.TS.SData.Call.Parms]
+%[0] = "TYPE, FCParameter"
+%[1] = "TYPE, FCParameter"
+%[2] = "TYPE, FCParameter"
+%[3] = "TYPE, FCParameter"
+%[4] = "TYPE, FCParameter"
+%[5] = "TYPE, FCParameter"
+%[6] = "TYPE, FCParameter"
+%[7] = "TYPE, FCParameter"
+%[8] = "TYPE, FCParameter"
+%[9] = "TYPE, FCParameter"
+%[10] = "TYPE, FCParameter"
+%[11] = "TYPE, FCParameter"
+%[12] = "TYPE, FCParameter"
+%[13] = "TYPE, FCParameter"
+
+[TL_SendCmd.TS.SData.Call.Parms[0]]
+Name = "Return Value"
+Type = 3
+
+[TL_SendCmd.TS.SData.Call.Parms[1]]
+Name = "ConnectionId"
+NumType = 5
+ArgVal = "0"
+
+[TL_SendCmd.TS.SData.Call.Parms[2]]
+Name = "Command"
+Type = 2
+ArgVal = "\"\""
+
+[TL_SendCmd.TS.SData.Call.Parms[3]]
+Name = "Title"
+Type = 2
+ArgVal = "\"\""
+
+[TL_SendCmd.TS.SData.Call.Parms[4]]
+Name = "Comments"
+Type = 2
+ArgVal = "\"\""
+
+[TL_SendCmd.TS.SData.Call.Parms[5]]
+Name = "TimeCapture"
+ArgVal = "0"
+
+[TL_SendCmd.TS.SData.Call.Parms[6]]
+Name = "DataRcv"
+Type = 2
+StrPass = 2
+StrSize = "1000000"
+ArgVal = "Step.Result.DataReceived"
+
+[TL_SendCmd.TS.SData.Call.Parms[7]]
+Name = "MaxSizeofData"
+ArgVal = "1000000"
+
+[TL_SendCmd.TS.SData.Call.Parms[8]]
+Name = "Settings"
+NumType = 5
+ArgVal = "0"
+
+[TL_SendCmd.TS.SData.Call.Parms[9]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.PassFail"
+Flags = 20
+
+[TL_SendCmd.TS.SData.Call.Parms[10]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+
+[TL_SendCmd.TS.SData.Call.Parms[11]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.Error.Occurred"
+Flags = 20
+
+[TL_SendCmd.TS.SData.Call.Parms[12]]
+NumPass = 1
+ArgVal = "Step.Result.Error.Code"
+Flags = 16
+
+[TL_SendCmd.TS.SData.Call.Parms[13]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.Error.Msg"
+
+[DEF, TL_SendCmd.Result]
+Error = "TYPE, Error"
+Status = Str
+PassFail = Bool
+ReportText = Str
+Common = "TYPE, CommonResults"
+DataReceived = Str
+
+[TL_SendCmd.Result]
+%FLG: Error = 4194304
+%INSTFLG: Error = 4194304
+%INSTOVRD: Error = 4194304
+%FLG: Status = 4194304
+%INSTFLG: Status = 4194304
+PassFail = True
+%INSTOVRD: Common = 4194304
+%FLG: DataReceived = 8192
+
+[DEF, TL_Close]
+%LOCATION = "StepTypes"
+DescriptionFormat = "TYPE, Expression"
+%FLG: DescriptionFormat = 524288
+DefaultNameFormat = "TYPE, Expression"
+%FLG: DefaultNameFormat = 524288
+Menu = "TYPE, StepTypeMenu"
+Substeps = "TYPE, StepTypeSubstepsArray"
+CodeTemplates = Str
+%FLG: CodeTemplates = 524288
+TS = "TYPE, TEInf"
+Result = Obj
+InBuf = Str
+DataSource = "TYPE, Expression"
+%ROOT_TYPE = True
+
+[TL_Close]
+DescriptionFormat = "\"Close connection with target : \" + Step.TS.SData.Call.Parms[1].ArgVal "
+%FLG: DescriptionFormat = 4194328
+%INSTFLG: DescriptionFormat = 4718616
+%INSTOVRD: DescriptionFormat = 4718616
+DefaultNameFormat = "\"Close Connection\""
+%FLG: DefaultNameFormat = 4194328
+%INSTFLG: DefaultNameFormat = 4718616
+%INSTOVRD: DefaultNameFormat = 4718616
+CodeTemplates Line0001 = "DefaultLabVIEW|DefaultCVI|DefaultVB.NET|DefaultCSharp.NET|DefaultC++.NET|DefaultVC++_Template|DefaultHTB72_Template|Defa"
+CodeTemplates Line0002 = "ultHTB80_Template|Default_Template|PassFailLabVIEW|PassFailCVI|PassFailVB.NET|PassFailCSharp.NET|PassFailC++.NET|PassFai"
+CodeTemplates Line0003 = "lVC++_Template|PassFailHTB80_Template|PassFailHTB72_Template|PassFail_Template"
+%FLG: CodeTemplates = 4194328
+%INSTFLG: TS = 262168
+%FLG: Result = 4194304
+%INSTFLG: Result = 4194304
+DataSource = "Step.Result.PassFail"
+%TIMESTAMP = 1281686674
+%VERSION = "0.0.2.5"
+%TYPELASTMOD = "3.0.0.12373"
+%TYPE_FLG = 10
+
+[TL_Close.Menu]
+ItemName = "\"Close Connection\""
+Group = "Close"
+
+[TL_Close.TS]
+Icon = "ExtraPuTTY\\eClose.ico"
+StatusExpr Line0001 = "Step.DataSource != \"Step.Result.PassFail\" ? Step.Result.PassFail = Evaluate(Step.DataSource) : False, Step.Result.Pass"
+StatusExpr Line0002 = "Fail ? \"Passed\" : \"Failed\" "
+CanEditCode = False
+%FLG: CanEditCode = 131072
+CanEditModulePrototype = False
+%FLG: CanEditModulePrototype = 131072
+
+[DEF, TL_Close.TS]
+SData = "TYPE, FlexCStepAdditions"
+%FLG: SData = 2097152
+
+[TL_Close.TS.SData.Call]
+LibPath = "C:\\Program Files\\ExtraPuTTY\\TestStand\\ExtraPuTTY.dll"
+Func = "CloseConnexion_F"
+%HI: Parms = [6]
+
+[DEF, TL_Close.TS.SData.Call.Parms]
+%[0] = "TYPE, FCParameter"
+%[1] = "TYPE, FCParameter"
+%[2] = "TYPE, FCParameter"
+%[3] = "TYPE, FCParameter"
+%[4] = "TYPE, FCParameter"
+%[5] = "TYPE, FCParameter"
+%[6] = "TYPE, FCParameter"
+
+[TL_Close.TS.SData.Call.Parms[0]]
+Name = "Return Value"
+
+[TL_Close.TS.SData.Call.Parms[1]]
+Name = "ConnectionId"
+NumType = 5
+ArgVal = "0"
+
+[TL_Close.TS.SData.Call.Parms[2]]
+NumPass = 1
+ArgVal = "Step.Result.PassFail"
+Flags = 16
+
+[TL_Close.TS.SData.Call.Parms[3]]
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.ReportText"
+
+[TL_Close.TS.SData.Call.Parms[4]]
+NumType = 0
+NumPass = 1
+ArgVal = "Step.Result.Error.Occurred"
+Flags = 20
+
+[TL_Close.TS.SData.Call.Parms[5]]
+NumPass = 1
+ArgVal = "Step.Result.Error.Code"
+Flags = 16
+
+[TL_Close.TS.SData.Call.Parms[6]]
+Name = "arg6"
+Type = 2
+StrPass = 2
+ArgVal = "Step.Result.Error.Msg"
+
+[DEF, TL_Close.Result]
+Error = "TYPE, Error"
+Status = Str
+ReportText = Str
+Common = "TYPE, CommonResults"
+PassFail = Bool
+
+[TL_Close.Result]
+%FLG: Error = 4194304
+%INSTFLG: Error = 4194304
+%FLG: Status = 4194304
+%INSTFLG: Status = 4194304
+%FLG: ReportText = 4194304
+%INSTFLG: ReportText = 4194304
+PassFail = True
+
