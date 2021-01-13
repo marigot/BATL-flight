@@ -1,13 +1,13 @@
 function [rawPeaksMat]=getRawPeaks(fftMat,typeOfData,loggedVariable)
 %   GETRAWPEAKS: Function that uses estFreqsMat (the user-entered matrix
-%   containing estimated locations of peaks/inflection points) in order to 
+%   containing estimated locations of peaks/inflection points) in order to
 %   find the actual peaks in the fast-fourier tranform of the raw data.
-% 
+%
 %   rawPeaksMat = getRawPeaks(fftMat,typeOfData,loggedVariable) takes the
-%   estimated frequencies of peaks/inflection points that the user inputs 
-%   (estFreqsMat) and finds the actual locations of the peaks/inflection 
+%   estimated frequencies of peaks/inflection points that the user inputs
+%   (estFreqsMat) and finds the actual locations of the peaks/inflection
 %   points in the fast-fourier transform of the raw data.
-% 
+%
 %   INPUTS
 %       fftMat              The fast-fourier transform matrix of the raw
 %                           data
@@ -33,11 +33,11 @@ function [rawPeaksMat]=getRawPeaks(fftMat,typeOfData,loggedVariable)
 %   OUTPUTS
 %       rawPeaksMat         Cell array that stores all of the raw peak
 %                           locations. The format is the same as dataMat.
-%                           [       {}      ,   {pidt values 1}   ,   {pidt values 2}   , ...                          
+%                           [       {}      ,   {pidt values 1}   ,   {pidt values 2}   , ...
 %                            {environment 1},     [RAW PEAKS]     ,     [RAW PEAKS]     , ...
 %                            {environment 2},     [RAW PEAKS]     ,     [RAW PEAKS]     , ...
 %                                    .                 .                     .
-%                                    .                 .                     .             ]      
+%                                    .                 .                     .             ]
 %
 %   Cornell University
 %   BATL-The Effects of Turbulent Vortex Shedding on the Stability of Quadcopter Drones
@@ -53,10 +53,10 @@ rawPeaksMat(:,1)=dataMat(:,1);
 rawPeaksMat(1,:)=dataMat(1,:);
 searchThreshold=.75; %how far to search for a peak on either side of the estimated frequency (in Hz)
 
-concavityRange=12; %how many points to each side of the center point to search for the inflection point. concavityRange*freqInterval=the freq range being searched (in Hz)
+concavityRange=13; %how many points to each side of the center point to search for the inflection point. concavityRange*freqInterval=the freq range being searched (in Hz)
 
 for i=2:size(fftMat,1)  %loop through environments
-    numOfPeaks=length(estFreqsMat{i-1,2}); %number of peaks (predetermined by user in estFreqsMat)
+    numOfPeaks=size(estFreqsMat{i-1,2},2); %number of peaks (predetermined by user in estFreqsMat)
     for j=2:size(fftMat,2)  %get actual peaks
         if ~isempty(fftMat{i,j}) %check that there is data in this cell
             freqInterval=fftMat{i,j}(2,1)-fftMat{i,j}(1,1); %set the x-distance between points
@@ -67,10 +67,9 @@ for i=2:size(fftMat,1)  %loop through environments
             end
             peaks=[];   %store the peaks
             for a=1:numOfPeaks  %loop through all the peaks for each environment
-                indices=find((locs<estFreqsMat{i-1,2}(a)+searchThreshold) & (locs>estFreqsMat{i-1,2}(a)-searchThreshold)); %find the peak that is near the estimated peak
-                if isempty(indices)     %no peak found so look for inflection point
-                    begFreq=estFreqsMat{i-1,2}(a)-freqInterval/2; %find beginning of the range in which to locate a central point
-                    endFreq=estFreqsMat{i-1,2}(a)+freqInterval/2; %find ending of the range in which to locate a central point
+                if estFreqsMat{i-1,2}(2,a)==1   %look for inflection point
+                    begFreq=estFreqsMat{i-1,2}(1,a)-freqInterval/2; %find beginning of the range in which to locate a central point
+                    endFreq=estFreqsMat{i-1,2}(1,a)+freqInterval/2; %find ending of the range in which to locate a central point
                     if begFreq<fftMat{i,j}(2,1)     %if the range is out-of-bounds at the beginning
                         begFreq=fftMat{i,j}(2,1);  %use the first non-zero freqency
                     end
@@ -95,14 +94,13 @@ for i=2:size(fftMat,1)  %loop through environments
                     else    %not zpos data
                         ampSection=fftMat{i,j}(begConcavityRange:endConcavityRange,2);  %save amplitudes
                     end
-                    concavity=diff(ampSection,2);   %take the derivative
+                    concavity=diff(log10(ampSection),2);   %take the derivative
                     [B,I]=sort(abs(concavity));     %find the value closest to 0 aka the inflection point
-                    peaks=[peaks; freqSection(I(1)) ampSection(I(1))];  %save the inflection point in the peaks array
-                else    %peak found
-                    if length(indices)>1    %if theres more than one found index
-                        disp('something has gone terribly wrong');  %theres an error bc its finding more than 1 peak
-                    end
-                    peaks=[peaks; locs(indices(1)) 10.^pks(indices)];  %save peak
+                    peaks=[peaks; freqSection(I(1)) ampSection(I(1)) 1];  %save the inflection point in the peaks array
+                else    %look for peak
+                    indices=find((locs<estFreqsMat{i-1,2}(1,a)+searchThreshold) & (locs>estFreqsMat{i-1,2}(1,a)-searchThreshold)); %find the peak that is near the estimated peak
+                    [B,I]=sort(pks(indices),'descend');     %sort largest to smallest
+                    peaks=[peaks; locs(indices(I(1))) 10^B(1) 0];  %save largest peak
                 end
             end
             rawPeaksMat(i,j)={peaks};   %store peaks in rawPeaksMat

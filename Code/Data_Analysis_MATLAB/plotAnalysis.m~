@@ -73,11 +73,11 @@ for i=2:size(fftMat,1)       %loop through environment
                         indexMax=size(fftMat{i,j},1);
                     end
                     fitX=freqs(indexMin:indexMax);
-                    fitCurve=polyfit(fitX,smoothedData(indexMin:indexMax),2);
+                    fitCurve=polyfit(fitX,log10(smoothedData(indexMin:indexMax)),2);
                     fitY=polyval(fitCurve,fitX);
-                    [maxVal,I]=max(log10(fitY));
-                    plot(fitX(I),10^maxVal,'k*');
-                    fitPeaks=[fitPeaks; fitX(I) 10^maxVal];
+                    [maxVal,I]=max(fitY);
+                    plot(fitX(I),maxVal,'k*');
+                    fitPeaks=[fitPeaks; fitX(I) maxVal];
                 else
                     indexMin=index-12;
                     if indexMin<2
@@ -95,7 +95,7 @@ for i=2:size(fftMat,1)       %loop through environment
                     plot(fitX(I(1)),fitY(I(1)),'k*');
                     fitPeaks=[fitPeaks; fitX(I(1)) fitY(I(1))];
                 end
-                semilogy(fitX,fitY,'Color',[0.4660 0.6740 0.1880],'Linewidth',1.5);
+                plot(fitX,fitY,'Color',[0.4660 0.6740 0.1880],'Linewidth',1.5);
                 
             end
             fitPeaksMat(i,j)={fitPeaks};

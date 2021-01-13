@@ -11,7 +11,7 @@ function [fftMat,rawPeaksMat,fitPeaksMat]=FFTAnalysis(typeOfData,loggedVariable)
 %       crazyflie: 2=kalman.stateZ, 3=gyro.x (roll), 6=gyro.y (pitch)
 
 global dataMat;
-%close all;
+close all;
 %dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data',0);
 %dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data_New/Test_Flights',1);
 %cd /Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
@@ -21,26 +21,41 @@ estFreqsMat=cell(size(dataMat,1)-1,2);
 estFreqsMat(:,1)=dataMat(2:end,1);
 switch typeOfData
     case 1
-        estFreqsMat(1,2)={[1.5]};       %f0-d0
-        estFreqsMat(2,2)={[1.5, 4]};    %f10-d3.5
-        estFreqsMat(3,2)={[1.5]};       %f13-d0
-        estFreqsMat(4,2)={[1.5, 5.75]}; %f13-d3.5
-        estFreqsMat(5,2)={[1.5, 6.75]}; %f15-d3.5
+        estFreqsMat(1,2)={[1.5;         %f0-d0
+                            0  ]};       
+        estFreqsMat(2,2)={[1.5, 4;      %f10-d3.5
+                            0 , 0 ]};    
+        estFreqsMat(3,2)={[1.5;         %f13-d0
+                            0  ]};       
+        estFreqsMat(4,2)={[1.5, 5.75;   %f13-d3.5
+                            0 ,   0  ]}; 
+        estFreqsMat(5,2)={[1.5, 6.75;   %f15-d3.5
+                            0 ,   0  ]}; 
     case 2
         switch loggedVariable
             case 2
-                estFreqsMat(1,2)={[0.25, 1.25]};       %f0-d0
-                estFreqsMat(2,2)={[0.25, 1.25, 4]};    %f10-d3.5
-                estFreqsMat(3,2)={[0.25, 1.25]};       %f13-d0  
-                estFreqsMat(4,2)={[0.25, 1.25, 5.75]}; %f13-d3.5
-                estFreqsMat(5,2)={[0.25, 1.25, 6.75]}; %f15-d3.5
+                estFreqsMat(1,2)={[0.25, 1.25;          %f0-d0
+                                    1  ,  0   ]};       
+                estFreqsMat(2,2)={[0.25, 1.25, 4;       %f10-d3.5
+                                    1  ,  0  , 0 ]};    
+                estFreqsMat(3,2)={[0.25, 1.25;          %f13-d0  
+                                    1  ,  0   ]};       
+                estFreqsMat(4,2)={[0.25, 1.25, 5.75;    %f13-d3.5
+                                    1  ,  0  ,  0   ]}; 
+                estFreqsMat(5,2)={[0.25, 1.25, 6.75;    %f15-d3.5
+                                    1  ,  0  ,  0   ]}; 
             case 3
             case 6
-                estFreqsMat(1,2)={[1, 8]};                              %f0-d0
-                estFreqsMat(2,2)={[1, 4, 7.75, 12.25, 16.5]};           %f10-d3.5
-                estFreqsMat(3,2)={[1, 7.25]};                           %f13-d0  
-                estFreqsMat(4,2)={[1, 2.75, 5.75, 6.75 11.5 17.25 23]}; %f13-d3.5
-                estFreqsMat(5,2)={[1.5, 5.5, 6.75, 13.75 20.5]};        %f15-d3.5
+                estFreqsMat(1,2)={[1, 8;                                %f0-d0
+                                   0, 0 ]};                              
+                estFreqsMat(2,2)={[1, 4, 7.75, 12.25, 16.5;             %f10-d3.5
+                                   0, 0,  0  ,   0  ,   0  ]};           
+                estFreqsMat(3,2)={[1, 7.25;                             %f13-d0  
+                                   0,   0  ]};                           
+                estFreqsMat(4,2)={[1, 2.75, 5.75, 6.75, 11.5, 17.25;    %f13-d3.5
+                                   0,  1  ,  0  ,  1  ,  0  ,   0   ]}; 
+                estFreqsMat(5,2)={[1.5, 5.5, 6.75, 13.75, 20.5;         %f15-d3.5
+                                    0 ,  1 ,  0  ,   0  ,  0   ]};        
         end
 end
 
