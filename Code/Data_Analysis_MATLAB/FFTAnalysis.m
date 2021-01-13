@@ -1,14 +1,20 @@
 function [fftMat,rawPeaksMat,fitPeaksMat]=FFTAnalysis(typeOfData,loggedVariable)
+%   Cornell University
+%   BATL-The Effects of Turbulent Vortex Shedding on the Stability of Quadcopter Drones
+%   Ding, Grace
+%   03APR2020
+%   Last edited: 12JAN2021
+
 %typeOfData: 1=arduino, 2=crazyflie
 %loggedVariable: 
 %       arduino: 2=power
 %       crazyflie: 2=kalman.stateZ, 3=gyro.x (roll), 6=gyro.y (pitch)
 
 global dataMat;
-close all;
-%radataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data',0);
+%close all;
+%dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data',0);
 %dataMat=CreateDataMat('/Users/grace/Documents/GitHub/BATL-flight/Data_New/Test_Flights',1);
-cd /Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
+%cd /Users/grace/Documents/GitHub/BATL-flight/Code/Data_Analysis_MATLAB
 
 global estFreqsMat;
 estFreqsMat=cell(size(dataMat,1)-1,2);
@@ -23,18 +29,18 @@ switch typeOfData
     case 2
         switch loggedVariable
             case 2
-                estFreqsMat(1,2)={[0.25, 1.25]};%, 22, 23, 44.5, 45.5]};                              %f0-d0
-                estFreqsMat(2,2)={[0.25, 1.25]};%, 4]};           %f10-d3.5
-                estFreqsMat(3,2)={[0.25, 1.25]};                           %f13-d0  
-                estFreqsMat(4,2)={[0.25, 1.25]}; %f13-d3.5
-                estFreqsMat(5,2)={[0.25, 1.25]};       %f15-d3.5
+                estFreqsMat(1,2)={[0.25, 1.25]};       %f0-d0
+                estFreqsMat(2,2)={[0.25, 1.25, 4]};    %f10-d3.5
+                estFreqsMat(3,2)={[0.25, 1.25]};       %f13-d0  
+                estFreqsMat(4,2)={[0.25, 1.25, 5.75]}; %f13-d3.5
+                estFreqsMat(5,2)={[0.25, 1.25, 6.75]}; %f15-d3.5
             case 3
             case 6
                 estFreqsMat(1,2)={[1, 8]};                              %f0-d0
                 estFreqsMat(2,2)={[1, 4, 7.75, 12.25, 16.5]};           %f10-d3.5
                 estFreqsMat(3,2)={[1, 7.25]};                           %f13-d0  
                 estFreqsMat(4,2)={[1, 2.75, 5.75, 6.75 11.5 17.25 23]}; %f13-d3.5
-                estFreqsMat(5,2)={[1.5, 5.5, 6.75, 13.75 20.5]};       %f15-d3.5
+                estFreqsMat(5,2)={[1.5, 5.5, 6.75, 13.75 20.5]};        %f15-d3.5
         end
 end
 

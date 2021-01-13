@@ -22,7 +22,7 @@ for i=2:size(fftMat,1)       %loop through environment
             controllerNames=[controllerNames, dataMat{1,j}];
             f=fftMat{i,j}(:,1);
             smoothedData=fftMat{i,j}(:,2);
-            if typeOfData==3 && loggedVariable==2  %for zpos data, want data*f (normalized)
+            if typeOfData==2 && loggedVariable==2  %for zpos data, want data*f (normalized)
                 smoothedData=smoothedData.*f;
 %             elseif typeOfData==2 && loggedVariable==6
 %                 smoothedData=smoothedData.*f';
@@ -138,6 +138,7 @@ for i=2:size(fftMat,1)       %loop through environment
             case 2
                 ylim([1e-5 4e-3]);
                 %ylim([1e-4 1e-2]);
+                xlim([0 13]);
                 sgtitle('Z Position*Frequency');
             case 3
                 ylim([4e-2 10]);
