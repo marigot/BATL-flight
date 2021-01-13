@@ -1,0 +1,15 @@
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\WindowsApplication1.Form1.resources
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\WindowsApplication1.Resources.resources
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\extraputty_vbNet.vbproj.GenerateResource.Cache
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Debug\extraputty_vbNet.exe.config
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Debug\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Debug\extraputty_vbNet.pdb
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\bin\Debug\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET\extraputty_vbNet\obj\Debug\extraputty_vbNet.pdb
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\bin\Debug\extraputty_vbNet.exe.config
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Debug\extraputty_vbNet.exe
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Debug\extraputty_vbNet.xml
+C:\Program Files\ExtraPuTTY\Bin\Examples\VB.NET__\extraputty_vbNet\obj\Debug\extraputty_vbNet.pdb

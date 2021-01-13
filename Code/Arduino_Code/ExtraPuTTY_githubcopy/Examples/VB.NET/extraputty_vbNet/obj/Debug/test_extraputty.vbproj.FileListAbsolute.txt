@@ -1,0 +1,33 @@
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\bin\Debug\test_extraputty.exe
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\bin\Debug\test_extraputty.pdb
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\bin\Debug\test_extraputty.xml
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\WindowsApplication1.Form1.resources
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\WindowsApplication1.Resources.resources
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\test_extraputty.vbproj.GenerateResource.Cache
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\test_extraputty.exe
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\test_extraputty.xml
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\obj\Debug\test_extraputty.pdb
+C:\Documents and Settings\Administrateur\Mes documents\Visual Studio 2008\Projects\test_extraputty\test_extraputty\bin\Debug\Routrek.granados.dll
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.exe
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.xml
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.pdb
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.exe
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.pdb
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.xml
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\ResolveAssemblyReference.cache
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\WindowsApplication1.Form1.resources
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\WindowsApplication1.Resources.resources
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.vbproj.GenerateResource.Cache
+D:\Documents and Settings\e_sblavi\Bureau\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.exe.config
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.exe.config
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.exe
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.xml
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.pdb
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.exe
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.pdb
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Debug\test_extraputty.xml
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\ResolveAssemblyReference.cache
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\WindowsApplication1.Form1.resources
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\WindowsApplication1.Resources.resources
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Debug\test_extraputty.vbproj.GenerateResource.Cache

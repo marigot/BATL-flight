@@ -1,0 +1,11 @@
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Release\test_extraputty.exe.config
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Release\test_extraputty.exe
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Release\test_extraputty.pdb
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\bin\Release\test_extraputty.xml
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\ResolveAssemblyReference.cache
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\WindowsApplication1.Form1.resources
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\WindowsApplication1.Resources.resources
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.vbproj.GenerateResource.Cache
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.exe
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.xml
+D:\clef_usb\test_extraputty\test_extraputty\test_extraputty\obj\Release\test_extraputty.pdb

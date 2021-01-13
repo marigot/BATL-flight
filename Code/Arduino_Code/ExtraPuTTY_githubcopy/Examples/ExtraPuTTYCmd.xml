@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--Registry file for ExtraPuTTY, Copyright 2010-->
+<ExtraPuTTYTreeCmd>
+	<Position name="ExtraPuTTY" use="1">
+  		<btlr name="bottom" value="501"/>
+  		<btlr name="top" value="81"/>
+  		<btlr name="left" value="105"/>
+  		<btlr name="right" value="341"/>
+	</Position>
+	<Position name="PuTTY" use="1">
+  		<btlr name="bottom" value="501"/>
+  		<btlr name="top" value="81"/>
+  		<btlr name="left" value="341"/>
+  		<btlr name="right" value="1008"/>
+	</Position>
+	<Options Locked="0"/>
+	<Help Type="chm" Path="&lt;PATH_EXPUTTY&gt;ExtraPutty.chm"/>
+	<root name="Login" help="ExtraPuTTY_Start.html" RGB="16711680" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="700" lfItalic="255" lfUnderline="1" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial">
+  		<childroot name="Clear Scrolback" type="1" cmd="EXT_SYS_CMD_CLEAR_SB" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Reset Termnial" help="ExtraPuTTY_Using.html" type="1" cmd="EXT_SYS_CMD_RESET_TERM" CRLF="0" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Send ETX(0x03) + HELLO + BEL(0x07)" type="1" cmd="EXT_SPECHAR_ETX_HELLO_BEL" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Send only CRLF" type="1" cmd="EXT_SPECHAR_CR_LF" CRLF="0" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="Loop with modal dialogbox" type="2" loop="2" auto="0" RGB="128" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="700" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial">
+      			<childscenarii name="Display input box" cmd="EXT_MSGBOX_INPUTBOX_Enter your login" tempo="500" mode="execute" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+      			<childscenarii name="start Extraputty trace" cmd="EXT_SYS_CMD_START_TRACE" tempo="500" mode="skip" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+      			<childscenarii name="Send Telnet Are you there" cmd="EXT_SYS_CMD_TS_AYT" tempo="1000" mode="execute" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+      			<childscenarii name="Display message box" cmd="EXT_MSGBOX_Tests MessageBox" tempo="1000" mode="execute" CRLF="1" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="255" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		</childroot>
+	</root>
+	<root name="LUA script" help="ExtraPuTTY_Using_Step_lua.html" RGB="16711680" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="700" lfItalic="255" lfUnderline="1" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial">
+  		<childroot name="Wait command1" help="ExtraPuTTY_Using_Step_lua.html" type="3" path="&lt;PATH_EXPUTTY&gt;script.lua" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+  		<childroot name="used compile script" help="ExtraPuTTY_Using_Step_lua.html" type="3" path="&lt;PATH_EXPUTTY&gt;script.o" RGB="0" lfHeight="-12" lfWidth="0" lfEscapement="0" lfOrientation="0" lfWeight="400" lfItalic="0" lfUnderline="0" lfStrikeOut="0" lfCharSet="0" lfOutPrecision="3" lfClipPrecision="2" lfQuality="1" lfPitchAndFamily="34" lfFaceName="Arial"/>
+	</root>
+	<File name="&lt;PATH_EXPUTTY&gt;Examples\Test1.xml"/>
+</ExtraPuTTYTreeCmd>
